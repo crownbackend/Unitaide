@@ -931,7 +931,8 @@ input[type="text"] {
 
 #footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 4em 0;
+  padding-top: 4em;
+  padding-bottom: 0em;
 }
 #footer h3 {
   font-size: 18px;
