@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Unitaide.org{% endblock %}
+
+{% block body %}
+
+    <aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+                <li style="background-image: url({{ asset('images/image-3.jpg') }});">
+                    <div class="overlay-gradient"></div>
+                    <div class="container">
+                        <div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
+                            <div class="slider-text-inner">
+                                <h2>Apporté le sourire aux enfants</h2>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li style="background-image: url({{ asset('images/image-6.jpg') }});">
+                    <div class="overlay-gradient"></div>
+                    <div class="container">
+                        <div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
+                            <div class="slider-text-inner">
+                                <h2>Améliorer le quotidien des plus démunis</h2>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li style="background-image: url({{ asset('images/image-7.jpg') }});">
+                    <div class="overlay-gradient"></div>
+                    <div class="container">
+                        <div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
+                            <div class="slider-text-inner">
+                                <h2>Des moments de partage</h2>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li style="background-image: url({{ asset('images/dons.png') }});">
+                    <div class="overlay-gradient"></div>
+                    <div class="container">
+                        <div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
+                            <div class="slider-text-inner">
+                                <h2>Faites un don</h2>
+                                <span style="font-weight: bold; font-size: 1.5rem;"><a style="color: #fcfcfc;" href="https://paypal.me/pools/c/89HepwKSxO" target="_blank">Don</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div id="fh5co-services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center animate-box ">
+                    <div class="heading-section">
+                        <h2>Unit'aide</h2>
+                        <p>
+                            Unit’aide est une association humanitaire qui a pour objet de venir en aide aux plus défavorisés dans le monde 🌍
+                            Nos actions s’effectueront dans un premier temps en France pour aider au niveau local et récolter des fonds afin de
+                            réaliser une mission dans le pays d’origine d’un des membres de l’association. En effet, les lieux seront connus et la
+                            langue parlée, par au moins un membre. Nous formons une équipe suffisamment cosmopolite pour toucher un grand nombre de pays
+                            : Maroc, Algérie, Tunisie, Égypte, Sénégal, Madagascar, Sri Lanka et bien d'autres. L’association a un projet par an avec un
+                            pays mis à l’honneur. Durant toute l’année, nous mettrons en place des activités, des évènements, des sorties afin de récolter
+                            des fonds pour financer le projet humanitaire final, que nous présenterons lors des prochains posts. Nous formons une équipe d'amis.
+                            Nos origines, venant du monde entier, nous ont poussés à penser à des alternatives pour mettre notre motivation et notre jeunesse pour
+                            la cause humanitaire internationale. Notre association est fondée sur quatre domaines d'action : social 👨‍👩‍👧‍👦, éducation👩🏻‍🏫, santé💉
+                            et écologie🌿. Etant donné que les projets sont variables d'année en année, nous avons ces quatre pôles à améliorer dans les pays choisis,
+                            par le biais de différentes actions.).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center animate-box ">
+            <div class="heading-section">
+                <h2>Nos projets</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="fh5co-work-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center animate-box">
+                    <div class="work" style="background-image: url(images/img-1.jpg);">
+                        <a href="#" class="view">
+                            <span>View Demo</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center animate-box">
+                    <div class="work" style="background-image: url(images/img-2.jpg);">
+                        <a href="#" class="view">
+                            <span>View Demo</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center animate-box">
+                    <div class="work" style="background-image: url(images/img-3.jpg);">
+                        <a href="#" class="view">
+                            <span>View Demo</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center animate-box">
+                    <div class="work" style="background-image: url(images/img-8.jpg);">
+                        <a href="#" class="view">
+                            <span>View Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center view-button animate-box"><a href="#" class="btn btn-primary btn-outline btn-lg">Voir tous nos projets</a></p>
+
+    <div class="fh5co-counters" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
+        <div class="fh5co-narrow-content animate-box">
+            <div class="row" >
+                <div class="col-md-4 text-center">
+                    <span class="fh5co-counter js-counter" data-from="0" data-to="130" data-speed="5000" data-refresh-interval="50"></span>
+                    <span class="fh5co-counter-label">Website</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <span class="fh5co-counter js-counter" data-from="0" data-to="1450" data-speed="5000" data-refresh-interval="50"></span>
+                    <span class="fh5co-counter-label">Branding</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <span class="fh5co-counter js-counter" data-from="0" data-to="7497" data-speed="5000" data-refresh-interval="50"></span>
+                    <span class="fh5co-counter-label">Product</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
