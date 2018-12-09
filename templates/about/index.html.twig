@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Qui-sommes-nous ?' %}
+
+{% block body %}
+
+    <div id="fh5co-intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 animate-box text-center">
+                    <h2 class="intro-heading">Qui sommes-nous ?</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <figure class="text-center">
+        <img src="images/img-group.jpeg" alt="" class="img-fluid" width="1000" height="800">
+    </figure>
+
+    <div id="fh5co-about-section">
+        <div class="container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                    <div class="about-content">
+                        <h3>Unit'aide</h3>
+                        <p>
+                            Unit'aide est une association humanitaire créée par 9 étudiants.
+                            Nous formons une équipe d'amis. Nos origines, venant du monde entier, nous ont poussés à penser à des alternatives pour mettre notre motivation et notre jeunesse pour la cause humanitaire internationale. Notre association est fondée sur quatre domaines d'action : social 👨‍👩‍👧‍👦, éducation👩🏻‍🏫, santé💉 et écologie🌿. Etant donné que les projets sont variables d'année en année, nous avons ces quatre domaines à améliorer dans les pays choisis, par le biais de différentes actions.
+                            Ces dérnières s’effectueront dans un premier temps en France pour aider au niveau local et récolter des fonds afin de réaliser une mission dans le pays d’origine d’un des membres de l’association. En effet, les lieux seront connus et la langue parlée, par au moins un membre. Nous formons une équipe suffisamment cosmopolite pour toucher un grand nombre de pays : Maroc, Algérie, Tunisie, Égypte, Sénégal, Madagascar, Sri Lanka et bien d'autres. L’association a un projet par an avec un pays mis à l’honneur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center animate-box ">
+                    <div class="heading-section">
+                        <h2>4 Pôles</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-4 animate-box">
+                    <div class="fh5co-staff">
+                        <img src="{{ asset('images/pole-admin.jpeg') }}" width="170" height="140" alt="Free HTML5 Templates by freehtml5.co">
+                        <h3>Safia, Masséna, Merwane</h3>
+                        <span class="role">Pôle Administratif</span>
+                        <p>Nous sommes les membres du bureau : La présidente, Safia, Le trésorier, Merwane, Le secrétaire, Massena.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 animate-box">
+                    <div class="fh5co-staff">
+                        <img src="{{ asset('images/pole-com.jpeg') }}" width="170" height="140" alt="Free HTML5 Templates by freehtml5.co">
+                        <h3>Omar et Malek</h3>
+                        <span class="role">Pôle Communication</span>
+                        <p>Nous sommes les chargés de la communication. nous nous occupons des réseaux sociaux : Instagram, Facebook ! C'est nous !
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 animate-box">
+                    <div class="fh5co-staff">
+                        <img src="{{ asset('images/pole-admin.jpeg') }}" width="170" height="140" alt="Free HTML5 Templates by freehtml5.co">
+                        <h3>Marie, Rama, Yasmine</h3>
+                        <span class="role">Pôle Sponsors et Partenariats</span>
+                        <p>Nous nous chargeons de faire le lien entre les partenaires, les sponsors, les associations avec qui nous réalisons nos projets.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 animate-box">
+                    <div class="fh5co-staff">
+                        <img src="{{ asset('images/pole-tech.jpg') }}" width="170" height="140" alt="Free HTML5 Templates by freehtml5.co">
+                        <h3>Belhassen</h3>
+                        <span class="role">Pôle Techniques</span>
+                        <p>Je suis le responsable de la partie technique et numérique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -4,6 +4,16 @@
 
 {% block body %}
 
+    <div id="fh5co-intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 animate-box text-center">
+                    <h2 class="intro-heading">1 an, 1 projet, 1 pays</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <aside id="fh5co-hero" class="js-fullheight">
         <div class="flexslider js-fullheight">
             <ul class="slides">
@@ -90,28 +100,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-1.jpg);">
+                    <div class="work" style="background-image: url({{ asset('images/img-1.jpg') }});">
                         <a href="#" class="view">
                             <span>View Demo</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-2.jpg);">
+                    <div class="work" style="background-image: url({{ asset('images/img-2.jpg') }});">
                         <a href="#" class="view">
                             <span>View Demo</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-3.jpg);">
+                    <div class="work" style="background-image: url({{ asset('images/img-3.jpg') }});">
                         <a href="#" class="view">
                             <span>View Demo</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-8.jpg);">
+                    <div class="work" style="background-image: url({{ asset('images/img-8.jpg') }});">
                         <a href="#" class="view">
                             <span>View Demo</span>
                         </a>
@@ -122,7 +132,7 @@
     </div>
     <p class="text-center view-button animate-box"><a href="#" class="btn btn-primary btn-outline btn-lg">Voir tous nos projets</a></p>
 
-    <div class="fh5co-counters" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
+    <div class="fh5co-counters" style="background-image: url({{ asset('images/hero.jpg') }});" data-stellar-background-ratio="0.5" id="counter-animate">
         <div class="fh5co-narrow-content animate-box">
             <div class="row" >
                 <div class="col-md-4 text-center">

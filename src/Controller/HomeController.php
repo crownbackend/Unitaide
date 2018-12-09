@@ -22,4 +22,12 @@ class HomeController extends AbstractController
     {
         return $this->render('blog/index.html.twig');
     }
+
+    /**
+     * @Route("/qui-sommes-nous", name="about")
+     */
+    public function about()
+    {
+        return $this->render('about/index.html.twig');
+    }
 }
