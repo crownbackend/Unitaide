@@ -1,13 +1,13 @@
 <footer>
     <div id="footer">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <h3 class="section-title">Minimal</h3>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
                 </div>
 
-                <div class="col-md-4 col-md-push-1">
+                <div class="col-md-3 col-md-push-1">
                     <h3 class="section-title">Our Services</h3>
                     <ul>
                         <li><a href="#">Videos</a></li>
@@ -18,9 +18,9 @@
                     </ul>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     {{ render(controller(
-                        'App\\Controller\\ContactController::newsletter'
+                        'App\\Controller\\NewsletterController::newsletter'
                     )) }}
                 </div>
             </div>
