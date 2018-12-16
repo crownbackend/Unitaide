@@ -9,14 +9,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class NewsletterController
+ * @package App\Controller
+ */
 class NewsletterController extends AbstractController
 {
     /**
-     * @Route("/newsletter", name="newsletter")
+     * @Route("/newsletter-register", name="newsletter")
      * @param Request $request
      * @return Response
      */
-    public function newsletter(Request $request): Response
+    public function newsletterSend(Request $request)
     {
         $user = new Newsletter();
         $form = $this->createForm(NewsletterType::class, $user);
@@ -25,16 +29,17 @@ class NewsletterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user = $form->getData();
-            $manager = $this->getDoctrine()->getManager();
-            $manager->persist($user);
-            $manager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
-            $this->addFlash('message', 'Votre inscription à bien été prise en compte');
+            $this->addFlash('message', 'Votre inscription à bien étais pris en compte ');
+
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('inc/footer.html.twig', [
-            'formNews' => $form->createView()
+        return $this->render('newsletter/newsletter.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }
