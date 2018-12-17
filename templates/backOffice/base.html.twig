@@ -2,19 +2,42 @@
 <html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    {% block title %}<title>Document</title> {% endblock %}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- favicon.ico and apple-touch-icon.png -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('images/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
     {% block stylesheets %}
+    <!-- fontawesome cdn  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="{{ asset('build/uikit.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('build/app.css') }}">
     {% endblock %}
 </head>
 <body>
 
+<button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-overlay"><i class="fas fa-bars"></i> Menu</button>
+
+<div id="offcanvas-overlay" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+
+        <h3>Title</h3>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    </div>
+</div>
+
 <div class="uk-container">
+
     {% block body %}
     {% endblock %}
+
 </div>
     {% block javascripts %}
         <script src="{{ asset('build/runtime.js') }}"></script>
