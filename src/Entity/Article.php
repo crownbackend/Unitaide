@@ -39,13 +39,14 @@ class Article
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="article", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="article")
      */
     private $images;
 
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->createdAt = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -131,4 +132,5 @@ class Article
 
         return $this;
     }
+
 }
