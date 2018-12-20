@@ -4,4 +4,24 @@
 
 {% block body %}
 
+    {{ form_start(form) }}
+        <fieldset class="uk-fieldset">
+
+            <legend class="uk-legend">Ajouter un article</legend>
+            <div class="uk-margin">
+                {{ form_label(form.title, 'Titre') }}
+                {{ form_widget(form.title) }}
+            </div>
+            <div class="uk-margin">
+                {{ form_label(form.description, 'Description') }}
+                {{ form_widget(form.description) }}
+            </div>
+            <div class="uk-margin">
+                {{ form_label(form.images, 'Ajouter des images') }}
+                {{ form_widget(form.images) }}
+            </div>
+            <button type="submit" class="uk-button uk-button-primary">Ajouter</button>
+        </fieldset>
+    {{ form_end(form) }}
+
 {% endblock %}

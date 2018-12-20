@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HomeAdminController extends AbstractController
 {
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName()
+    {
+        return md5(uniqid());
+    }
+
     /**
      * @Route("/", name="admin_index")
      */
@@ -37,7 +46,17 @@ class HomeAdminController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $article = $form->getData();
+            $upload_directory = $this->getParameter('images_directory');
+            $files = $request->files->get('post')['images'];
+            foreach ($files as $file)
+            {
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                $file->move(
+                    $upload_directory,
+                    $fileName
+                );
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();

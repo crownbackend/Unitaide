@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -20,11 +21,22 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 255,
+     *      minMessage = "Votre titre doit contenir au minimum {{ limit }} caractères",
+     *      maxMessage = "Votre titre doit contenir au maximum {{ limit }} caractères")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min="20",
+     *     minMessage="Votre description doit contenir au minimum {{ limit }} caractères"
+     * )
      */
     private $description;
 
@@ -40,6 +52,11 @@ class Article
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="article")
+     * @Assert\NotBlank()
+     * @Assert\File(
+     *     mimeTypes={"image/jpeg", "image/png", "image/gif"},
+     *     mimeTypesMessage = "Please upload a valid Image"
+     *     )
      */
     private $images;
 
