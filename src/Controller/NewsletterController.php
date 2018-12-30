@@ -20,18 +20,17 @@ class NewsletterController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function newsletterSend(Request $request)
+    public function addMail(Request $request)
     {
-        $user = new Newsletter();
-        $form = $this->createForm(NewsletterType::class, $user);
+        $email = new Newsletter();
+        $form = $this->createForm(NewsletterType::class, $email);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $user = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($email);
+            $em->flush();
 
             $this->addFlash('message', 'Votre inscription à bien étais pris en compte ');
 

@@ -36,8 +36,7 @@ class ArticleType extends AbstractType
 
             ])
             ->add('images', FileType::class, [
-                'multiple' => true,
-                'mapped' => false
+                'multiple' => true
             ])
         ;
     }

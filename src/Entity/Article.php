@@ -60,6 +60,10 @@ class Article
      */
     private $images;
 
+    /**
+     * Article constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
         $this->images = new ArrayCollection();

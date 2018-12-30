@@ -1,8 +1,7 @@
-
 <h2>Inscrivez vous à notre newsletter</h2>
 <div class="animate-box">
     <div class="row">
-        {{ form_start(form) }}
+        {{ form_start(form, {'action': path('newsletter')}) }}
         <div class="col-md-6">
             <div class="form-group">
                 {{ form_widget(form.name) }}
