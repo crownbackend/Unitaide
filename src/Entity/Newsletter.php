@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NewsletterRepository")
@@ -17,11 +18,15 @@ class Newsletter
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $email;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      * @ORM\Column(type="string", length=255)
      */
     private $name;

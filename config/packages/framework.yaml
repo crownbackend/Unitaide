@@ -32,3 +32,5 @@ framework:
         #app: cache.adapter.apcu
     templating:
         engines: ['twig', 'php']
+
+    validation: { enable_annotations: true }

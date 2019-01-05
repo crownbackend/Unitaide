@@ -33,10 +33,8 @@ class NewsletterController extends AbstractController
             $em->flush();
 
             $this->addFlash('message', 'Votre inscription à bien étais pris en compte ');
-
             return $this->redirectToRoute('home');
         }
-
         return $this->render('newsletter/newsletter.html.twig', [
             'form' => $form->createView()
         ]);
