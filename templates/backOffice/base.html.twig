@@ -2,9 +2,12 @@
 <html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
-    {% block title %}<title>Document</title> {% endblock %}
+    {% block title %}
+        <title>Document</title>
+    {% endblock %}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
     <!-- favicon.ico and apple-touch-icon.png -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('images/favicon-96x96.png') }}">
@@ -12,8 +15,8 @@
     {% block stylesheets %}
     <!-- fontawesome cdn  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/uikit.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('build/app.css') }}">
+        {{ encore_entry_link_tags('uikit') }}
+        {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
 <body>
@@ -45,9 +48,9 @@
 </div>
     {% block javascripts %}
         <script src="{{ asset('build/runtime.js') }}"></script>
-        <script src="{{ asset('build/uikit.js') }}"></script>
-        <script src="{{ asset('build/uikit-icon.js') }}"></script>
-        <script src="{{ asset('build/app.js') }}"></script>
+        {{ encore_entry_script_tags('uikit') }}
+        {{ encore_entry_script_tags('uikit-icon') }}
+        {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </body>
 </html>

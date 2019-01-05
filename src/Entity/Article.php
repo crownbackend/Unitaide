@@ -6,9 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @Vich\Uploadable()
  */
 class Article
 {
@@ -70,6 +73,22 @@ class Article
      * })
      */
     private $imageFiles;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="property_image_miniature", fileNameProperty="imageNameMiniature")
+     *
+     * @var File
+     */
+    private $imageFileMiniature;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageNameMiniature;
 
     /**
      * Article constructor.
@@ -194,6 +213,36 @@ class Article
         }
         $this->imageFiles = $imageFiles;
         return $this;
+    }
+
+    /**
+     * @param File|null $imageFileMiniature
+     * @throws \Exception
+     */
+    public function setImageFileMiniature(?File $imageFileMiniature = null): void
+    {
+        $this->imageFileMiniature = $imageFileMiniature;
+
+        if (null !== $imageFileMiniature) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFileMiniature(): ?File
+    {
+        return $this->imageFileMiniature;
+    }
+
+    public function setImageNameMiniature(?string $imageNameMiniature): void
+    {
+        $this->imageNameMiniature = $imageNameMiniature;
+    }
+
+    public function getImageNameMiniature(): ?string
+    {
+        return $this->imageNameMiniature;
     }
 
 }

@@ -16,11 +16,19 @@
                 {{ form_label(form.description, 'Description') }}
                 {{ form_widget(form.description) }}
             </div>
+
+            <div class="uk-margin">
+                {{ form_label(form.imageFileMiniature, 'Ajouter une miniature pour l\'article') }}
+                {{ form_widget(form.imageFileMiniature) }}
+                {{ form_errors(form.imageFileMiniature) }}
+            </div>
+
             <div class="uk-margin">
                 {{ form_label(form.imageFiles, 'Ajouter des images') }}
                 {{ form_widget(form.imageFiles) }}
                 {{ form_errors(form.imageFiles) }}
             </div>
+
             <div class="uk-margin">
                 {{ form_label(form.tags, 'Ajouter des tags') }}
                 {{ form_widget(form.tags) }}

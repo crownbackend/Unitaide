@@ -1,6 +1,36 @@
 {% extends 'backOffice/base.html.twig' %}
+
 {% block title %} <title>Accueil</title> {% endblock %}
+
 {% block body %}
+
+    <h1 class="uk-text-center">Listes des derniers articles pubilier</h1>
+
+    {% for row in articles|batch(3) %}
+        <div class="uk-child-width-1-3@m" uk-grid>
+
+        {% for article in row %}
+            <div>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="500" height="300" alt="{{ article.imageNameMiniature }}">
+                    </div>
+
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Media Top</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                            <div>
+                                <a class="uk-button uk-button-text" href="#">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
 
 
 {% endblock %}

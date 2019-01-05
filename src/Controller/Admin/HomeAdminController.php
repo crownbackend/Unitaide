@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +19,11 @@ class HomeAdminController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('backOffice/home/index.html.twig');
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+
+        return $this->render('backOffice/home/index.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
 }

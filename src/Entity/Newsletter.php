@@ -20,14 +20,14 @@ class Newsletter
     /**
      * @Assert\NotBlank()
      * @Assert\Email()
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
      * @Assert\NotBlank()
      * @Assert\Length(min=2)
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=180)
      */
     private $name;
 
