@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -89,6 +90,12 @@ class Article
      * @var string
      */
     private $imageNameMiniature;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=255, unique=true)
+     */
+    private $slug;
 
     /**
      * Article constructor.
@@ -243,6 +250,11 @@ class Article
     public function getImageNameMiniature(): ?string
     {
         return $this->imageNameMiniature;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
 }

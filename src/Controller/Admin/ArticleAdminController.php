@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleAdminController extends AbstractController
 {
     /**
-     * @Route("/add-article", name="new_article")
+     * @Route("/ajouter-un-article", name="new_article")
      * @param Request $request
      * @return Response
      * @throws \Exception
@@ -43,4 +43,5 @@ class ArticleAdminController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
 }

@@ -11,10 +11,12 @@
             <div class="uk-margin">
                 {{ form_label(form.title, 'Titre') }}
                 {{ form_widget(form.title) }}
+                {{ form_errors(form.title) }}
             </div>
             <div class="uk-margin">
                 {{ form_label(form.description, 'Description') }}
                 {{ form_widget(form.description) }}
+                {{ form_errors(form.description) }}
             </div>
 
             <div class="uk-margin">
@@ -32,6 +34,7 @@
             <div class="uk-margin">
                 {{ form_label(form.tags, 'Ajouter des tags') }}
                 {{ form_widget(form.tags) }}
+                {{ form_errors(form.tags) }}
             </div>
             <button type="submit" class="uk-button uk-button-primary">Ajouter</button>
         </fieldset>
