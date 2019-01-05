@@ -18,14 +18,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleAdminController extends AbstractController
 {
     /**
-     * @return string
-     */
-    private function    generateUniqueFileName()
-    {
-        return md5(uniqid());
-    }
-
-    /**
      * @Route("/add-article", name="new_article")
      * @param Request $request
      * @return Response
@@ -39,24 +31,10 @@ class ArticleAdminController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $files = $article->getImages();
-
-            foreach ($files as $file) {
-                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-
-                try {
-                    $file->move(
-                        $this->getParameter('images_directory'),
-                        $fileName
-                    );
-                } catch (FileException $e) {
-
-                }
-            }
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
+
         }
 
         return $this->render('backOffice/home/add-article.html.twig', [

@@ -35,7 +35,8 @@ class ArticleType extends AbstractType
                 ]
 
             ])
-            ->add('images', FileType::class, [
+            ->add('tags', TextType::class)
+            ->add('imageFiles', FileType::class, [
                 'multiple' => true
             ])
         ;

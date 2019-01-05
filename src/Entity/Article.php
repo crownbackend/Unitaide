@@ -51,19 +51,25 @@ class Article
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="article")
-     * @Assert\NotBlank()
-     * @Assert\File(
-     *     mimeTypes={"image/jpeg", "image/png", "image/gif"},
-     *     mimeTypesMessage = "Please upload a valid Image"
-     *     )
+     * @ORM\Column(type="text")
+     */
+    private $tags;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="article", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
 
     /**
-     * @ORM\Column(type="text")
+     * @Assert\All({
+     *   @Assert\Image(
+     *     mimeTypes={"image/jpeg", "image/png", "image/gif"},
+     *     mimeTypesMessage = "Please upload a valid Image",
+     *     maxSize="8024k"
+     * )
+     * })
      */
-    private $tags;
+    private $imageFiles;
 
     /**
      * Article constructor.
@@ -71,8 +77,8 @@ class Article
      */
     public function __construct()
     {
-        $this->images = new ArrayCollection();
         $this->createdAt = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -128,6 +134,18 @@ class Article
         return $this;
     }
 
+    public function getTags(): ?string
+    {
+        return $this->tags;
+    }
+
+    public function setTags(string $tags): self
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Image[]
      */
@@ -159,15 +177,22 @@ class Article
         return $this;
     }
 
-    public function getTags(): ?string
+    /**
+     * @return mixed
+     */
+    public function getImageFiles()
     {
-        return $this->tags;
+        return $this->imageFiles;
     }
 
-    public function setTags(string $tags): self
+    public function setImageFiles($imageFiles): self
     {
-        $this->tags = $tags;
-
+        foreach($imageFiles as $imageFile) {
+            $image = new Image();
+            $image->setImageFile($imageFile);
+            $this->addImage($image);
+        }
+        $this->imageFiles = $imageFiles;
         return $this;
     }
 

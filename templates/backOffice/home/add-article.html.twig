@@ -17,8 +17,13 @@
                 {{ form_widget(form.description) }}
             </div>
             <div class="uk-margin">
-                {{ form_label(form.images, 'Ajouter des images') }}
-                {{ form_widget(form.images) }}
+                {{ form_label(form.imageFiles, 'Ajouter des images') }}
+                {{ form_widget(form.imageFiles) }}
+                {{ form_errors(form.imageFiles) }}
+            </div>
+            <div class="uk-margin">
+                {{ form_label(form.tags, 'Ajouter des tags') }}
+                {{ form_widget(form.tags) }}
             </div>
             <button type="submit" class="uk-button uk-button-primary">Ajouter</button>
         </fieldset>
