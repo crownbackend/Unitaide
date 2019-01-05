@@ -61,6 +61,11 @@ class Article
     private $images;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $tags;
+
+    /**
      * Article constructor.
      * @throws \Exception
      */
@@ -150,6 +155,18 @@ class Article
                 $image->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTags(): ?string
+    {
+        return $this->tags;
+    }
+
+    public function setTags(string $tags): self
+    {
+        $this->tags = $tags;
 
         return $this;
     }

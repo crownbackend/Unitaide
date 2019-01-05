@@ -39,17 +39,19 @@ class ArticleAdminController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $file = $article->getImages();
+            $files = $article->getImages();
 
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            foreach ($files as $file) {
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
-            try {
-                $file->move(
-                    $this->getParameter('images_directory'),
-                    $fileName
-                );
-            } catch (FileException $e) {
-                // ... handle exception if something happens during file upload
+                try {
+                    $file->move(
+                        $this->getParameter('images_directory'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+
+                }
             }
 
             $em = $this->getDoctrine()->getManager();
