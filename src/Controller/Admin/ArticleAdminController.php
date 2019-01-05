@@ -35,6 +35,8 @@ class ArticleAdminController extends AbstractController
             $em->persist($article);
             $em->flush();
 
+            return $this->redirectToRoute('admin_index');
+
         }
 
         return $this->render('backOffice/home/add-article.html.twig', [
