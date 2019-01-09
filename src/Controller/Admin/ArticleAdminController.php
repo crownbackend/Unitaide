@@ -4,8 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,12 +13,23 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class ArticleAdminController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/admin/article")
  */
 class ArticleAdminController extends AbstractController
 {
     /**
-     * @Route("/ajouter-un-article", name="new_article")
+     * @Route("/", name="admin_list_article")
+     * @param ArticleRepository $articleRepository
+     * @return Response
+     */
+    public function indexArticle(ArticleRepository $articleRepository): Response
+    {
+        return $this->render('backOffice/article/index.html.twig', ['articles' => $articleRepository->findAll()]);
+    }
+
+
+    /**
+     * @Route("/ajouter-un-article", name="admin_new_article")
      * @param Request $request
      * @return Response
      * @throws \Exception
@@ -36,10 +47,9 @@ class ArticleAdminController extends AbstractController
             $em->flush();
 
             return $this->redirectToRoute('admin_index');
-
         }
 
-        return $this->render('backOffice/home/add-article.html.twig', [
+        return $this->render('backOffice/article/add-article.html.twig', [
             'form' => $form->createView()
         ]);
     }

@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,13 +16,13 @@ class HomeAdminController extends AbstractController
 {
     /**
      * @Route("/", name="admin_index")
+     * @param ArticleRepository $articleRepository
+     * @return Response
      */
-    public function index(): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
-
         return $this->render('backOffice/home/index.html.twig', [
-            'articles' => $articles
+            'articles' => $articleRepository->findAll()
         ]);
     }
 

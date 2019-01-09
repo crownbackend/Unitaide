@@ -4,32 +4,26 @@
 
 {% block body %}
 
-    <h1 class="uk-text-center">Bienvenue sur votre espace admin</h1>
-
-    <h2>Voici la listes des dernier articles publier sur le site </h2>
-
+    <h1 class="uk-text-center">Listes des derniers articles pubilier article</h1>
+    <ul class="uk-subnav" uk-margin>
+        <li><a class="uk-button uk-button-text" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
+    </ul>
     {% for row in articles|batch(3) %}
         <div class="uk-child-width-1-3@m" uk-grid>
+
         {% for article in row %}
             <div>
                 <div class="uk-card uk-card-default">
                     <div class="uk-card-media-top">
                         <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="500" height="300" alt="{{ article.imageNameMiniature }}">
                     </div>
-                    {% set tags = article.tags|split(',')  %}
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">{{ article.title|slice(0, 25) }}...</h3>
-                        <p>{{ article.description|slice(0, 100) }}...</p>
-                        tags :
-                        {% for tag in tags %}
-                            <span class="uk-label uk-label-success">{{ tag }}</span>
-                        {% endfor %}
 
-                        <br />
-                        <br />
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Media Top</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>
-                                <a class="uk-button uk-button-text" href="#">Lire la suite</a>
+                                <a class="uk-button uk-button-text" href="#">Read more</a>
                             </div>
                         </div>
                     </div>

@@ -15,14 +15,15 @@
     {% block stylesheets %}
     <!-- fontawesome cdn  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        {{ encore_entry_script_tags('turbolinks') }}
         {{ encore_entry_link_tags('uikit') }}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
 <body>
-
+{% if is_granted('ROLE_ADMIN') %}
 <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-overlay"><i class="fas fa-bars"></i> Menu</button>
-
+{% endif %}
 <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
     <div class="uk-offcanvas-bar">
 
@@ -31,7 +32,7 @@
         <div class="uk-width-1-2@s uk-width-2-5@m">
             <ul class="uk-nav uk-nav-default">
                 <li class="uk-active"><a href="{{ path('admin_index') }}">Accueil</a></li>
-                <li><a href="#">Articles</a></li>
+                <li><a href="{{ path('admin_list_article') }}">Articles</a></li>
                 <li><a href="#">Evenements</a></li>
                 <li><a href="#">Newsletter</a></li>
             </ul>
