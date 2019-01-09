@@ -27,6 +27,19 @@ class ArticleAdminController extends AbstractController
         return $this->render('backOffice/article/index.html.twig', ['articles' => $articleRepository->findAll()]);
     }
 
+    /**
+     * @Route("/article/{slug}", name="admin_show_article")
+     * @param ArticleRepository $articleRepository
+     * @param string $slug
+     * @return Response
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function articleShow(ArticleRepository $articleRepository, string $slug): Response
+    {
+        return $this->render('backOffice/article/show.html.twig', [
+            'article' => $articleRepository->findBySLug($slug)
+        ]);
+    }
 
     /**
      * @Route("/ajouter-un-article", name="admin_new_article")

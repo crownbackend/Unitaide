@@ -1,0 +1,13 @@
+{% extends 'backOffice/base.html.twig' %}
+
+{% block title %} <title>{{ article.title }}</title> {% endblock %}
+
+{% block body %}
+<div>
+
+{{ article.title }}
+</div>
+    {% for image in article.images %}
+    <img src="{{ asset('images/articles/'~image.name) }}" width="500" height="300" alt="{{ article.imageNameMiniature }}">
+    {% endfor %}
+{% endblock %}

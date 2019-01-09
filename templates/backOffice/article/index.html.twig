@@ -1,6 +1,6 @@
 {% extends 'backOffice/base.html.twig' %}
 
-{% block title %} <title>Accueil</title> {% endblock %}
+{% block title %} <title>Article</title> {% endblock %}
 
 {% block body %}
 
@@ -15,7 +15,7 @@
             <div>
                 <div class="uk-card uk-card-default">
                     <div class="uk-card-media-top">
-                        <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="500" height="300" alt="{{ article.imageNameMiniature }}">
+                        <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="1800" height="1200" alt="{{ article.imageNameMiniature }}">
                     </div>
 
                     <div class="uk-card-body">
@@ -23,7 +23,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>
-                                <a class="uk-button uk-button-text" href="#">Read more</a>
+                                <a class="uk-button uk-button-text" href="{{ path('admin_show_article', {'slug': article.slug}) }}">Read more</a>
                             </div>
                         </div>
                     </div>
