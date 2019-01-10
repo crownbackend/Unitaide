@@ -1,13 +1,45 @@
 {% extends 'backOffice/base.html.twig' %}
 
-{% block title %} <title>{{ article.title }}</title> {% endblock %}
+{% block title %} {{ article.title }} {% endblock %}
 
 {% block body %}
-<div>
 
-{{ article.title }}
-</div>
-    {% for image in article.images %}
-    <img src="{{ asset('images/articles/'~image.name) }}" width="500" height="300" alt="{{ article.imageNameMiniature }}">
-    {% endfor %}
+    <article class="uk-article">
+
+        <h1 class="uk-article-title">{{ article.title }}</h1>
+
+        <p class="uk-article-meta">
+            Article publier le {{ article.createdAt|date('m/d/Y à H:i') }}
+            {% if article.updatedAt %}
+            et modifier la dérnier fois le {{ article.updatedAt|date('m/d/y à H:i') }}
+            {% endif %}
+        </p>
+
+        <p>{{ article.description }}</p>
+
+        <div class="uk-grid-small uk-child-width-auto" uk-grid>
+            <div>Tags:
+                {% for tag in article.tags|split(',') %}
+                <span class="uk-label uk-label-success">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+    </article>
+
+    <div class="uk-h3">Images de l'article</div>
+    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow>
+        <ul class="uk-slideshow-items">
+        {% for image in article.images %}
+            <li>
+                <img data-src="{{ asset('images/articles/'~image.name) }}" width="1800" height="1200" alt="{{ image.name }}" uk-cover uk-img="target: !.uk-slideshow-items">
+            </li>
+        {% endfor %}
+        </ul>
+
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+    </div>
+
 {% endblock %}

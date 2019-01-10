@@ -1,6 +1,6 @@
 {% extends 'backOffice/base.html.twig' %}
 
-{% block title %} <title>Article</title> {% endblock %}
+{% block title %} Article {% endblock %}
 
 {% block body %}
 
@@ -17,14 +17,23 @@
                     <div class="uk-card-media-top">
                         <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="1800" height="1200" alt="{{ article.imageNameMiniature }}">
                     </div>
+                    <ul class="uk-iconnav">
+                        <li><a href="" uk-icon="icon: check"></a></li>
+                    </ul>
 
                     <div class="uk-card-body">
-                        <h3 class="uk-card-title">Media Top</h3>
+                        <h3 class="uk-card-title">{{ article.title|slice(0, 22) }}...</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>
-                                <a class="uk-button uk-button-text" href="{{ path('admin_show_article', {'slug': article.slug}) }}">Read more</a>
+                                <a class="uk-button uk-button-text" href="{{ path('admin_show_article', {'slug': article.slug}) }}">Lire l'article</a>
                             </div>
+                            <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" style="padding-left: 100px;">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a href="{{ path('admin_delete_article', {'id': article.id}) }}" title="Supprimer l'article">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
                         </div>
                     </div>
 

@@ -22,7 +22,7 @@ class HomeAdminController extends AbstractController
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('backOffice/home/index.html.twig', [
-            'articles' => $articleRepository->findAll()
+            'articles' => $articleRepository->findThreeArticle()
         ]);
     }
 

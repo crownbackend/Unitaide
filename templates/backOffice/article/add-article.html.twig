@@ -1,6 +1,6 @@
 {% extends 'backOffice/base.html.twig' %}
 
-{% block title %} <title>AJouter un nouvelle article</title> {% endblock %}
+{% block title %} AJouter un nouvelle article {% endblock %}
 
 {% block body %}
 
@@ -21,7 +21,7 @@
 
             <div class="uk-margin">
                 {{ form_label(form.imageFileMiniature, 'Ajouter une miniature pour l\'article') }}
-                {{ form_widget(form.imageFileMiniature) }}
+                {{ form_widget(form.imageFileMiniature, {'attr': {'required': 'true'}}) }}
                 {{ form_errors(form.imageFileMiniature) }}
             </div>
 

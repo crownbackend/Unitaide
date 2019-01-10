@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,19 +23,19 @@ class ArticleAdminController extends AbstractController
      * @param ArticleRepository $articleRepository
      * @return Response
      */
-    public function indexArticle(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('backOffice/article/index.html.twig', ['articles' => $articleRepository->findAll()]);
     }
 
     /**
-     * @Route("/article/{slug}", name="admin_show_article")
+     * @Route("/detail/{slug}", name="admin_show_article")
      * @param ArticleRepository $articleRepository
      * @param string $slug
      * @return Response
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function articleShow(ArticleRepository $articleRepository, string $slug): Response
+    public function Show(ArticleRepository $articleRepository, string $slug): Response
     {
         return $this->render('backOffice/article/show.html.twig', [
             'article' => $articleRepository->findBySLug($slug)
@@ -47,7 +48,7 @@ class ArticleAdminController extends AbstractController
      * @return Response
      * @throws \Exception
      */
-    public function addArticle(Request $request): Response
+    public function add(Request $request): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
@@ -65,6 +66,52 @@ class ArticleAdminController extends AbstractController
         return $this->render('backOffice/article/add-article.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/editer/{id}", name="admin_edit_article")
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     * @throws \Exception
+     */
+    public function edit(Request $request, int $id): Response
+    {
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $date = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+            $article->setUpdatedAt($date);
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            return $this->redirectToRoute('admin_show_article', [
+                'slug' => $article->getSlug()
+            ]);
+        }
+        return $this->render('backOffice/article/edit.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="admin_delete_article")
+     * @param ArticleRepository $articleRepository
+     * @param int $id
+     * @return RedirectResponse
+     */
+    public function delete(ArticleRepository $articleRepository, int $id): RedirectResponse
+    {
+        $article = $articleRepository->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($article);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_list_article');
     }
 
 }
