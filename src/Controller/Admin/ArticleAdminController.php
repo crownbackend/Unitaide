@@ -103,14 +103,15 @@ class ArticleAdminController extends AbstractController
      * @param int $id
      * @return RedirectResponse
      */
-    public function delete(ArticleRepository $articleRepository, int $id): RedirectResponse
+    public function delete(ArticleRepository $articleRepository, int $id)
     {
         $article = $articleRepository->find($id);
-
         $em = $this->getDoctrine()->getManager();
+        foreach ($article->getImages() as $image) {
+            $article->removeImage($image);
+        }
         $em->remove($article);
         $em->flush();
-
         return $this->redirectToRoute('admin_list_article');
     }
 

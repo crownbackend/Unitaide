@@ -60,7 +60,7 @@ class Article
     private $tags;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="article", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="article", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $images;
 
