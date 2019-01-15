@@ -23,11 +23,12 @@ class ImageController extends AbstractController
     {
         // get id for image
         $image = $this->getDoctrine()->getRepository(Image::class)->find($id);
+        $article = $image->getArticle();
         // remove and flush bdd
         $em = $this->getDoctrine()->getManager();
         $em->remove($image);
         $em->flush();
-        return $this->redirectToRoute('admin_list_article');
+        return $this->redirectToRoute('admin_edit_article', ['id' => $article->getId()]);
     }
 }
 

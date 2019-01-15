@@ -93,7 +93,8 @@ class ArticleAdminController extends AbstractController
             ]);
         }
         return $this->render('backOffice/article/edit.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'article' => $article
         ]);
     }
 
@@ -103,7 +104,7 @@ class ArticleAdminController extends AbstractController
      * @param int $id
      * @return RedirectResponse
      */
-    public function delete(ArticleRepository $articleRepository, int $id)
+    public function delete(ArticleRepository $articleRepository, int $id): RedirectResponse
     {
         $article = $articleRepository->find($id);
         $em = $this->getDoctrine()->getManager();

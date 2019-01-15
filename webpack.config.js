@@ -20,7 +20,6 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('uikit', './assets/js/uikit.js')
     .addEntry('uikit-icon', './assets/js/uikit-icons.js')
-    .addEntry('turbolinks', './assets/js/turbolinks.js')
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
