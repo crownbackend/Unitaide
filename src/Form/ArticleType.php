@@ -43,6 +43,7 @@ class ArticleType extends AbstractType
                 'multiple' => true,
                 'required' => false
             ])
+            ->add('category')
         ;
     }
 

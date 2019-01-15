@@ -98,6 +98,12 @@ class Article
     private $slug;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
+    /**
      * Article constructor.
      * @throws \Exception
      */
@@ -255,6 +261,18 @@ class Article
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
     }
 
 }

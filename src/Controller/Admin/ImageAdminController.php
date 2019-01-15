@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller\Admin
  * @Route("/admin")
  */
-class ImageController extends AbstractController
+class ImageAdminController extends AbstractController
 {
     /**
      * @Route("/supprimer/images/{id}", name="admin_delete_image")
