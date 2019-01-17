@@ -9,6 +9,11 @@
 
             <legend class="uk-legend">Ajouter un article</legend>
             <div class="uk-margin">
+                {{ form_label(form.category, 'Catégorie de l\'article') }}
+                {{ form_widget(form.category) }}
+                {{ form_errors(form.category) }}
+            </div>
+            <div class="uk-margin">
                 {{ form_label(form.title, 'Titre') }}
                 {{ form_widget(form.title) }}
                 {{ form_errors(form.title) }}
