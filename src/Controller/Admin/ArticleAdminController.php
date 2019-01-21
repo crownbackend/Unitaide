@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Form\ArticleType;
+use App\Form\CategoryType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -54,17 +56,30 @@ class ArticleAdminController extends AbstractController
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('admin_index');
+            return $this->redirectToRoute('admin_list_article');
+        }
+
+        $category = new Category();
+        $formCategory = $this->createForm(CategoryType::class, $category);
+        $formCategory->handleRequest($request);
+
+        if ($formCategory->isSubmitted() && $formCategory->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_new_article');
         }
 
         return $this->render('backOffice/article/add-article.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'form_category' => $formCategory->createView()
         ]);
     }
 

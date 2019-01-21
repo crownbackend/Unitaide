@@ -20,7 +20,7 @@
         </div>
         <div class="uk-margin">
             {{ form_label(form.description, 'Description') }}
-            {{ form_widget(form.description) }}
+            {{ form_widget(form.description, {'attr': {'class': 'ckeditor'}}) }}
             {{ form_errors(form.description) }}
         </div>
 
@@ -66,4 +66,15 @@
     </fieldset>
     {{ form_end(form) }}
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('textarea.ckeditor').ckeditor();
+        });
+    </script>
 {% endblock %}

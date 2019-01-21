@@ -31,7 +31,7 @@
                             <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" style="padding-left: 100px;">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="" title="Supprimer l'article">
+                            <a href="{{ path('admin_delete_article', {'id': article.id}) }}" title="Supprimer l'article">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>

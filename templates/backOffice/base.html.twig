@@ -22,9 +22,29 @@
     {% endblock %}
 </head>
 <body>
+
 {% if is_granted('ROLE_ADMIN') %}
+<nav class="uk-navbar-container" uk-navbar>
 <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-overlay"><i class="fas fa-bars"></i> Menu</button>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li>
+                <a href="#">Parent</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a href="#">Active</a></li>
+                        <li><a href="#">Item</a></li>
+                        <li><a href="#">Item</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#">Item</a></li>
+        </ul>
+    </div>
+</nav>
 {% endif %}
+
 <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
     <div class="uk-offcanvas-bar">
 
@@ -34,6 +54,7 @@
             <ul class="uk-nav uk-nav-default">
                 <li class="uk-active"><a href="{{ path('admin_index') }}">Accueil</a></li>
                 <li><a href="{{ path('admin_list_article') }}">Articles</a></li>
+                <li><a href="{{ path('admin_list_category') }}">Catégorie</a></li>
                 <li><a href="#">Evenements</a></li>
                 <li><a href="#">Newsletter</a></li>
             </ul>
