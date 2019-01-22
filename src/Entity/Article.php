@@ -104,6 +104,11 @@ class Article
     private $category;
 
     /**
+     * @ORM\Column(type="string", length=154)
+     */
+    private $seoDescription;
+
+    /**
      * Article constructor.
      * @throws \Exception
      */
@@ -271,6 +276,18 @@ class Article
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getSeoDescription(): ?string
+    {
+        return $this->seoDescription;
+    }
+
+    public function setSeoDescription(string $seoDescription): self
+    {
+        $this->seoDescription = $seoDescription;
 
         return $this;
     }

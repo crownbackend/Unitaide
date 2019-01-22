@@ -23,7 +23,7 @@
                     {% set tags = article.tags|split(',')  %}
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">{{ article.title|slice(0, 22) }}...</h3>
-                        <p>{{ article.description|slice(0, 100) }}...</p>
+                        <p>{{ article.seoDescription|slice(0, 80) }}...</p>
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>
                                 <a class="uk-button uk-button-text" href="{{ path('admin_show_article', {'slug': article.slug}) }}">Lire la suite</a>

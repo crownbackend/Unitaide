@@ -24,6 +24,12 @@ class ArticleType extends AbstractType
                     'class' => 'uk-form-label'
                 ]
             ])
+            ->add('seoDescription', TextType::class, [
+                'attr' => [
+                    'class' => 'uk-input',
+                    'placeholder' => 'Une description qui ne dépasse pas les 154 caractère, elle sera utilise pour tous ce qui est référencement'
+                ]
+            ])
             ->add('description', TextareaType::class,[
                 'attr' => [
                     'class' => 'uk-textarea',

@@ -19,6 +19,11 @@
             {{ form_errors(form.title) }}
         </div>
         <div class="uk-margin">
+            {{ form_label(form.seoDescription, 'Description pour le référencement') }}
+            {{ form_widget(form.seoDescription) }}
+            {{ form_errors(form.seoDescription) }}
+        </div>
+        <div class="uk-margin">
             {{ form_label(form.description, 'Description') }}
             {{ form_widget(form.description, {'attr': {'class': 'ckeditor'}}) }}
             {{ form_errors(form.description) }}

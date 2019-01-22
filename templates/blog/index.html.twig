@@ -15,34 +15,15 @@
     <div id="fh5co-work-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-1.jpg);">
-                        <a href="#" class="view">
-                            <span>View Demo</span>
-                        </a>
+                {% for article in articles %}
+                    <div class="col-md-6 text-center animate-box">
+                        <div class="work" style="background-image: url({{ asset('images/miniature/'~article.imageNameMiniature) }});">
+                            <a href="#" class="view">
+                                <span>{{ article.title }}</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-2.jpg);">
-                        <a href="#" class="view">
-                            <span>View Demo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-3.jpg);">
-                        <a href="#" class="view">
-                            <span>View Demo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url(images/img-8.jpg);">
-                        <a href="#" class="view">
-                            <span>View Demo</span>
-                        </a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
