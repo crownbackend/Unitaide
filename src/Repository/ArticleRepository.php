@@ -45,4 +45,15 @@ class ArticleRepository extends ServiceEntityRepository
         return $query;
     }
 
+    public function findSixArticle()
+    {
+        $query = $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+        return $query;
+    }
+
 }

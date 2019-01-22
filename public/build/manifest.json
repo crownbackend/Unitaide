@@ -1,0 +1,8 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/uikit.css": "/build/uikit.css",
+  "build/uikit.js": "/build/uikit.js",
+  "build/uikit-icon.js": "/build/uikit-icon.js"
+}

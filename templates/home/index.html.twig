@@ -99,56 +99,19 @@
     <div id="fh5co-work-section">
         <div class="container">
             <div class="row">
+                {% for article in articles %}
                 <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url({{ asset('images/img-1.jpg') }});">
+                    <div class="work" style="background-image: url({{ asset('images/miniature/'~article.imageNameMiniature) }});">
                         <a href="#" class="view">
-                            <span>View Demo</span>
+                            <span>{{ article.title }}</span>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url({{ asset('images/img-2.jpg') }});">
-                        <a href="#" class="view">
-                            <span>View Demo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url({{ asset('images/img-3.jpg') }});">
-                        <a href="#" class="view">
-                            <span>View Demo</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url({{ asset('images/img-8.jpg') }});">
-                        <a href="#" class="view">
-                            <span>View Demo</span>
-                        </a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
     <p class="text-center view-button animate-box"><a href="#" class="btn btn-primary btn-outline btn-lg">Voir tous nos projets</a></p>
 
-    <div class="fh5co-counters" style="background-image: url({{ asset('images/hero.jpg') }});" data-stellar-background-ratio="0.5" id="counter-animate">
-        <div class="fh5co-narrow-content animate-box">
-            <div class="row" >
-                <div class="col-md-4 text-center">
-                    <span class="fh5co-counter js-counter" data-from="0" data-to="130" data-speed="5000" data-refresh-interval="50"></span>
-                    <span class="fh5co-counter-label">Website</span>
-                </div>
-                <div class="col-md-4 text-center">
-                    <span class="fh5co-counter js-counter" data-from="0" data-to="1450" data-speed="5000" data-refresh-interval="50"></span>
-                    <span class="fh5co-counter-label">Branding</span>
-                </div>
-                <div class="col-md-4 text-center">
-                    <span class="fh5co-counter js-counter" data-from="0" data-to="7497" data-speed="5000" data-refresh-interval="50"></span>
-                    <span class="fh5co-counter-label">Product</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
 {% endblock %}
