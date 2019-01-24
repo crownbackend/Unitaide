@@ -41,7 +41,11 @@ class ArticleType extends AbstractType
                 ]
 
             ])
-            ->add('tags', TextType::class)
+            ->add('tags', TextType::class, [
+                'attr' => [
+                    'data-role' => 'tagsinput'
+                ]
+            ])
             ->add('imageFileMiniature', FileType::class, [
                 'required' => false
             ])

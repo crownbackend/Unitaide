@@ -25,23 +25,29 @@
 
 {% if is_granted('ROLE_ADMIN') %}
 <nav class="uk-navbar-container" uk-navbar>
-<button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-overlay"><i class="fas fa-bars"></i> Menu</button>
+<button class="uk-button uk-button-default" id="menu" type="button" uk-toggle="target: #offcanvas-overlay"><i class="fas fa-bars"></i> Menu</button>
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Active</a></li>
-            <li>
-                <a href="#">Parent</a>
-                <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="#">Active</a></li>
-                        <li><a href="#">Item</a></li>
-                        <li><a href="#">Item</a></li>
-                    </ul>
-                </div>
+            <li {% if app.request.attributes.get('_route') == 'admin_index' %}class="uk-active"{% endif %}>
+                <a href="{{ path('admin_index') }}">Accueil</a>
             </li>
-            <li><a href="#">Item</a></li>
+            <li {% if app.request.attributes.get('_route') == 'admin_list_article' %}class="uk-active"{% endif %}>
+                <a href="{{ path('admin_list_article') }}">Articles</a>
+            </li>
+            <li {% if app.request.attributes.get('_route') == 'admin_list_category' %}class="uk-active"{% endif %}>
+                <a href="{{ path('admin_list_category') }}">Catégorie</a>
+            </li>
+            <li>
+                <a href="#">Evenements</a>
+            </li>
+            <li>
+                <a href="#">Newsletter</a>
+            </li>
         </ul>
     </div>
+        <div class="uk-navbar-right" style="padding-right: 15px;">
+            <a href="{{ path('home') }}" target="_blank">Accedez au site web</a>
+        </div>
 </nav>
 {% endif %}
 
@@ -52,11 +58,21 @@
 
         <div class="uk-width-1-2@s uk-width-2-5@m">
             <ul class="uk-nav uk-nav-default">
-                <li class="uk-active"><a href="{{ path('admin_index') }}">Accueil</a></li>
-                <li><a href="{{ path('admin_list_article') }}">Articles</a></li>
-                <li><a href="{{ path('admin_list_category') }}">Catégorie</a></li>
-                <li><a href="#">Evenements</a></li>
-                <li><a href="#">Newsletter</a></li>
+                <li {% if app.request.attributes.get('_route') == 'admin_index' %}class="uk-active"{% endif %}>
+                    <a href="{{ path('admin_index') }}">Accueil</a>
+                </li>
+                <li {% if app.request.attributes.get('_route') == 'admin_list_article' %}class="uk-active"{% endif %}>
+                    <a href="{{ path('admin_list_article') }}">Articles</a>
+                </li>
+                <li {% if app.request.attributes.get('_route') == 'admin_list_category' %}class="uk-active"{% endif %}>
+                    <a href="{{ path('admin_list_category') }}">Catégorie</a>
+                </li>
+                <li>
+                    <a href="#">Evenements</a>
+                </li>
+                <li>
+                    <a href="#">Newsletter</a>
+                </li>
             </ul>
         </div>
 

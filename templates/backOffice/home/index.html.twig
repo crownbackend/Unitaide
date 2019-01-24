@@ -18,12 +18,14 @@
             <div>
                 <div class="uk-card uk-card-default">
                     <div class="uk-card-media-top">
-                        <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="500" height="300" alt="{{ article.imageNameMiniature }}">
+                        <a href="{{ path('admin_show_article', {'slug': article.slug}) }}">
+                             <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="500" height="300" alt="{{ article.imageNameMiniature }}">
+                        </a>
                     </div>
                     {% set tags = article.tags|split(',')  %}
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">{{ article.title|slice(0, 22) }}...</h3>
-                        <p>{{ article.seoDescription|slice(0, 80) }}...</p>
+                        <p>{{ article.seoDescription|slice(0, 70) }}...</p>
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>
                                 <a class="uk-button uk-button-text" href="{{ path('admin_show_article', {'slug': article.slug}) }}">Lire la suite</a>
@@ -31,7 +33,7 @@
                             <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" style="padding-left: 100px;">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="{{ path('admin_delete_article', {'id': article.id}) }}" title="Supprimer l'article">
+                            <a href="{{ path('admin_delete_article', {'id': article.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
