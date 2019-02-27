@@ -14,12 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class HomeAdminController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/admin/categorie")
  */
 class CategoryAdminController extends AbstractController
 {
     /**
-     * @Route("/categorie/", name="admin_list_category")
+     * @Route("/", name="admin_list_category")
      * @param CategoryRepository $categoryRepository
      * @return Response
      */
@@ -52,7 +52,7 @@ class CategoryAdminController extends AbstractController
     }
 
     /**
-     * @Route("/categorie/editer/{id}", name="admin_edit_category")
+     * @Route("/editer/{id}", name="admin_edit_category")
      * @param Request $request
      * @param int $id
      * @return RedirectResponse|Response
@@ -75,7 +75,7 @@ class CategoryAdminController extends AbstractController
     }
 
     /**
-     * @Route("/category/supprimer/{id}", name="admin_delete_category")
+     * @Route("/supprimer/{id}", name="admin_delete_category")
      * @param int $id
      * @return RedirectResponse
      */

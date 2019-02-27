@@ -37,8 +37,8 @@
             <li {% if app.request.attributes.get('_route') == 'admin_list_category' %}class="uk-active"{% endif %}>
                 <a href="{{ path('admin_list_category') }}">Catégorie</a>
             </li>
-            <li>
-                <a href="#">Evenements</a>
+            <li {% if app.request.attributes.get('_route') == 'admin_list_event' %}class="uk-active"{% endif %}>
+                <a href="{{ path('admin_list_event') }}">Evenements</a>
             </li>
             <li>
                 <a href="#">Newsletter</a>
@@ -67,8 +67,8 @@
                 <li {% if app.request.attributes.get('_route') == 'admin_list_category' %}class="uk-active"{% endif %}>
                     <a href="{{ path('admin_list_category') }}">Catégorie</a>
                 </li>
-                <li>
-                    <a href="#">Evenements</a>
+                <li {% if app.request.attributes.get('_route') == 'admin_list_event' %}class="uk-active"{% endif %}>
+                    <a href="{{ path('admin_list_event') }}">Evenements</a>
                 </li>
                 <li>
                     <a href="#">Newsletter</a>

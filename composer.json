@@ -17,6 +17,7 @@
         "symfony/framework-bundle": "4.2.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "*",
+        "symfony/phpunit-bridge": "*@dev",
         "symfony/process": "4.2.*",
         "symfony/security-bundle": "4.2.*",
         "symfony/serializer-pack": "*",
@@ -34,7 +35,7 @@
         "symfony/dotenv": "4.2.*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*",
+        "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "4.2.*"
     },
     "config": {
@@ -80,6 +81,12 @@
         "symfony": {
             "allow-contrib": false,
             "require": "4.2.*"
+        }
+    },
+    "repositories": {
+        "phpunit-bridge": {
+            "type": "path",
+            "url": "C:\\laragon\\www\\Unitaide\\vendor\\symfony\\phpunit-bridge"
         }
     }
 }
