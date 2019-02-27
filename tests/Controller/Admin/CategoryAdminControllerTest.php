@@ -15,4 +15,34 @@ class CategoryAdminControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
+    public function testAdd()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/admin/categorie/ajouter-categorie');
+        $crawler = $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testEdit()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/admin/categorie/editer/2');
+        $crawler = $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testDelete()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/admin/categorie/delete/2');
+        $crawler = $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
 }

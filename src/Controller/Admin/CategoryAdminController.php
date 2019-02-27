@@ -75,7 +75,7 @@ class CategoryAdminController extends AbstractController
     }
 
     /**
-     * @Route("/supprimer/{id}", name="admin_delete_category")
+     * @Route("/delete/{id}", name="admin_delete_category")
      * @param int $id
      * @return RedirectResponse
      */
