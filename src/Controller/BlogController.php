@@ -11,6 +11,8 @@ class BlogController extends AbstractController
 {
     /**
      * @Route("/blog", name="blog")
+     * @param ArticleRepository $articleRepository
+     * @return Response
      */
     public function blog(ArticleRepository $articleRepository): Response
     {

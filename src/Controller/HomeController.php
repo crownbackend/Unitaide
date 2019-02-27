@@ -11,6 +11,8 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     * @param ArticleRepository $articleRepository
+     * @return Response
      */
     public function index(ArticleRepository $articleRepository): Response
     {
