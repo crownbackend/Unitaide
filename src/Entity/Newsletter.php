@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NewsletterRepository")
+ * @UniqueEntity("email", message="Votre mail est déja utilisé")
  */
 class Newsletter
 {
@@ -17,11 +20,15 @@ class Newsletter
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min="2")
      * @ORM\Column(type="string", length=180)
      */
     private $name;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(type="string", length=180)
      */
     private $email;

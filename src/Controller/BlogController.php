@@ -20,4 +20,16 @@ class BlogController extends AbstractController
             'articles' => $articleRepository->findAll()
         ]);
     }
+
+    /**
+     * @Route("/article/{slug}")
+     * @param ArticleRepository $articleRepository
+     * @param string $slug
+     * @return Response
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function article(ArticleRepository $articleRepository, string  $slug): Response
+    {
+        return $this->render('blog/show.html.twig', ['article' => $articleRepository->findBySLug($slug)]);
+    }
 }
