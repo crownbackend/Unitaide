@@ -34,6 +34,9 @@ class ArticleRepository extends ServiceEntityRepository
         return $query->getOneOrNullResult();
     }
 
+    /**
+     * @return mixed
+     */
     public function findThreeArticle()
     {
         $query = $this->createQueryBuilder('a')
@@ -45,11 +48,26 @@ class ArticleRepository extends ServiceEntityRepository
         return $query;
     }
 
+    /**
+     * @return mixed
+     */
     public function findSixArticle()
     {
         $query = $this->createQueryBuilder('a')
             ->orderBy('a.createdAt', 'DESC')
             ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+        return $query;
+    }
+
+    public function findBySearch($search)
+    { //SELECT * FROM `article` WHERE title LIKE "%keep%"
+        $query = $this->createQueryBuilder('a')
+            ->where('a.title LIKE :name')
+            ->orWhere('a.description LIKE :name')
+            ->setParameter('name', "%$search%")
             ->getQuery()
             ->getResult()
         ;

@@ -44,9 +44,16 @@
                 <a href="#">Newsletter</a>
             </li>
         </ul>
+
     </div>
         <div class="uk-navbar-right" style="padding-right: 15px;">
+            <div class="uk-margin">
+                <form class="uk-search uk-search-large" method="GET" action="{{ path('admin_search') }}">
+                    <span uk-search-icon></span>
+                    <input class="uk-search-input" type="search" name="search" placeholder="Rechercher un article">
+                </form>
             <a href="{{ path('home') }}" target="_blank">Accedez au site web</a>
+            </div>
         </div>
 </nav>
 {% endif %}
