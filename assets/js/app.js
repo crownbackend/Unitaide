@@ -9,10 +9,11 @@
 require('../css/app.css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
+ var Turbolinks = require('turbolinks');
+ Turbolinks.start();
  var $ = require('jquery');
 
 $(document).ready(function () {
-
 });
 
 

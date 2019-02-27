@@ -9,9 +9,8 @@
     <table class="uk-table uk-table-striped">
         <thead>
             <tr>
-                <th>Nom de la catégorie</th>
                 <th>
-                    <a class="uk-button uk-button-text" href="{{ path('admin_new_category') }}">Ajouter une categorie</a>
+                    <a class="uk-button uk-button-default" href="{{ path('admin_new_category') }}">Ajouter une categorie</a>
                 </th>
             </tr>
         </thead>
@@ -21,7 +20,7 @@
                 <td>{{ category.name }}</td>
                 <td>
                     <a class="uk-button uk-button-primary" href="{{ path('admin_edit_category', {'id': category.id}) }}" >Modifier</a>
-                    <a class="uk-button uk-button-danger" href="{{ path('admin_delete_category', {'id': category.id}) }}">Supprimer</a>
+                    <a class="uk-button uk-button-danger" href="{{ path('admin_delete_category', {'id': category.id}) }}" data-turbolinks="false">Supprimer</a>
                 </td>
             </tr>
         {% endfor %}

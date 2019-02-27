@@ -6,7 +6,7 @@
 
     <h1 class="uk-text-center">Listes des derniers articles pubilier article</h1>
     <ul class="uk-subnav" uk-margin>
-        <li><a class="uk-button uk-button-text" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
     </ul>
     {% for row in articles|batch(3) %}
         <div class="uk-child-width-1-3@m" uk-grid>
@@ -33,7 +33,7 @@
                             <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" style="padding-left: 100px;">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="{{ path('admin_delete_article', {'id': article.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article">
+                            <a href="{{ path('admin_delete_article', {'id': article.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article" data-turbolinks="false">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>

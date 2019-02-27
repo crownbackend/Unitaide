@@ -8,8 +8,9 @@
 
     <h2>Voici la listes des dernier articles publier sur le site </h2>
     <ul class="uk-subnav" uk-margin>
-        <li><a class="uk-button uk-button-text" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
-        <li><a class="uk-button uk-button-text" href="{{ path('admin_new_category') }}">Ajouter une Categorie</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_category') }}">Ajouter une Categorie</a></li>
+        <li><a class="uk-button uk-button-default" href="#">Ajouter un evenements</a></li>
     </ul>
 
     {% for row in articles|batch(3) %}
