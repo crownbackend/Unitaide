@@ -1,0 +1,51 @@
+{% extends 'backOffice/base.html.twig' %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">Ajouter un evenement</legend>
+        <div class="uk-margin">
+            {{ form_label(form.title, 'Titre') }}
+            {{ form_widget(form.title) }}
+            {{ form_errors(form.title) }}
+        </div>
+        <div class="uk-margin">
+            {{ form_label(form.seoDescription, 'Description pour le référencement') }}
+            {{ form_widget(form.seoDescription) }}
+            {{ form_errors(form.seoDescription) }}
+        </div>
+        <div class="uk-margin">
+            {{ form_label(form.description, 'Description') }}
+            {{ form_widget(form.description, {'attr': {'class': 'ckeditor'}}) }}
+            {{ form_errors(form.description) }}
+        </div>
+
+        <div class="uk-margin">
+            {{ form_label(form.imageFileMiniature, 'Ajouter une miniature pour l\'article') }}
+            {{ form_widget(form.imageFileMiniature, {'attr': {'required': 'true'}}) }}
+            {{ form_errors(form.imageFileMiniature) }}
+        </div>
+
+        <div class="uk-margin">
+            {{ form_label(form.imageFiles, 'Ajouter des images') }}
+            {{ form_widget(form.imageFiles) }}
+            {{ form_errors(form.imageFiles) }}
+        </div>
+        <button type="submit" class="uk-button uk-button-primary">Ajouter</button>
+    </fieldset>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('textarea.ckeditor').ckeditor();
+        });
+    </script>
+{% endblock %}

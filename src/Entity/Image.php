@@ -32,15 +32,21 @@ class Image
      *     mimeTypesMessage = "Please upload a valid Image",
      *     maxSize="8024k"
      * )
-     * @Vich\UploadableField(mapping="property_image", fileNameProperty="name")
+     * @Vich\UploadableField(mapping="article_image", fileNameProperty="name")
      */
     private $imageFile;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="images")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $article;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="images")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $event;
 
 
     public function getId(): ?int
@@ -87,6 +93,18 @@ class Image
     public function setImageFile(?File $imageFile): self
     {
         $this->imageFile = $imageFile;
+        return $this;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
+
         return $this;
     }
 
