@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
+ * @Vich\Uploadable()
  */
 class Event
 {
@@ -61,18 +62,25 @@ class Event
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="event_image_miniature", fileNameProperty="imageNameMiniature")
+     * @Vich\UploadableField(mapping="event_image", fileNameProperty="imageName", size="imageSize")
      *
      * @var File
      */
-    private $imageFileMiniature;
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255)
      *
      * @var string
      */
-    private $imageNameMiniature;
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="integer")
+     *
+     * @var integer
+     */
+    private $imageSize;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="event", orphanRemoval=true, cascade={"persist", "remove"})
@@ -183,33 +191,43 @@ class Event
     }
 
     /**
-     * @param File|null $imageFileMiniature
+     * @param File|null $imageFile
      * @throws \Exception
      */
-    public function setImageFileMiniature(?File $imageFileMiniature = null): void
+    public function setImageFile(?File $imageFile = null): void
     {
-        $this->imageFileMiniature = $imageFileMiniature;
+        $this->imageFile = $imageFile;
 
-        if (null !== $imageFileMiniature) {
+        if (null !== $imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
     }
 
-    public function getImageFileMiniature(): ?File
+    public function getImageFile(): ?File
     {
-        return $this->imageFileMiniature;
+        return $this->imageFile;
     }
 
-    public function setImageNameMiniature(?string $imageNameMiniature): void
+    public function setImageName(?string $imageName): void
     {
-        $this->imageNameMiniature = $imageNameMiniature;
+        $this->imageName = $imageName;
     }
 
-    public function getImageNameMiniature(): ?string
+    public function getImageName(): ?string
     {
-        return $this->imageNameMiniature;
+        return $this->imageName;
+    }
+
+    public function setImageSize(?int $imageSize): void
+    {
+        $this->imageSize = $imageSize;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
     }
 
     /**

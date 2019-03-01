@@ -78,7 +78,7 @@ class Article
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="article_image_miniature", fileNameProperty="imageNameMiniature")
+     * @Vich\UploadableField(mapping="article_image", fileNameProperty="imageNameMiniature")
      *
      * @var File
      */

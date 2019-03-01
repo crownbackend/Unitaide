@@ -1,5 +1,5 @@
 {% extends 'backOffice/base.html.twig' %}
-
+{% block title %}Ajouter un évenement {% endblock %}
 {% block body %}
 
     {{ form_start(form) }}
@@ -23,9 +23,9 @@
         </div>
 
         <div class="uk-margin">
-            {{ form_label(form.imageFileMiniature, 'Ajouter une miniature pour l\'article') }}
-            {{ form_widget(form.imageFileMiniature, {'attr': {'required': 'true'}}) }}
-            {{ form_errors(form.imageFileMiniature) }}
+            {{ form_label(form.imageFile, 'Ajouter une miniature pour l\'article') }}
+            {{ form_widget(form.imageFile, {'attr': {'required': 'true'}}) }}
+            {{ form_errors(form.imageFile) }}
         </div>
 
         <div class="uk-margin">

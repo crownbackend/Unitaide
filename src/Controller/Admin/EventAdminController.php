@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Event;
 use App\Form\EventType;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,17 +19,19 @@ class EventAdminController extends AbstractController
 {
     /**
      * @Route("/", name="admin_list_event")
+     * @param EventRepository $eventRepository
      * @return Response
      */
-    public function index(): Response
+    public function index(EventRepository $eventRepository): Response
     {
-        return $this->render('backOffice/Event/index.html.twig');
+        return $this->render('backOffice/Event/index.html.twig', ['events' => $eventRepository->findAll()]);
     }
 
     /**
      * @Route("/ajouter-un-evenement", name="admin_new_event")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @throws \Exception
      */
     public function add(Request $request): Response
     {

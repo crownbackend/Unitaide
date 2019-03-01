@@ -20,7 +20,7 @@
                 <div class="uk-card uk-card-default">
                     <div class="uk-card-media-top">
                         <a href="{{ path('admin_show_article', {'slug': article.slug}) }}">
-                             <img src="{{ asset('images/miniature/'~article.imageNameMiniature) }}" width="500" style="height: 100%;" alt="{{ article.imageNameMiniature }}">
+                             <img src="{{ vich_uploader_asset(article, 'imageFileMiniature') }}" width="500" style="height: 100%;" alt="{{ article.imageNameMiniature }}">
                         </a>
                     </div>
                     {% set tags = article.tags|split(',')  %}

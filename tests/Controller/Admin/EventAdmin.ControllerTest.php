@@ -15,4 +15,14 @@ class EventAdminControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
+    public function testAdd()
+    {
+        $client = static::createClient();
+
+        $client->request('POST', '/admin/events/ajouter-un-evenement');
+        $crawler = $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
 }

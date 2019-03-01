@@ -20,7 +20,7 @@ class CategoryAdminControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/admin/categorie/ajouter-categorie');
+        $client->request('POST', '/admin/categorie/ajouter-categorie');
         $crawler = $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());

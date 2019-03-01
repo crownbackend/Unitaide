@@ -40,7 +40,7 @@ class EventType extends AbstractType
                     'class' => 'uk-form-label'
                 ]
             ])
-            ->add('imageFileMiniature', FileType::class, [
+            ->add('imageFile', FileType::class, [
                 'required' => false
             ])
             ->add('imageFiles', FileType::class, [

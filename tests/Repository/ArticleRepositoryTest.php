@@ -27,7 +27,7 @@ class ArticleRepositoryTest extends KernelTestCase
     public function testFindBySearch()
     {
         $search = $this->entityManager->getRepository(Article::class)->findBySearch('keep');
-        $this->assertCount(2, $search);
+        $this->assertCount(1, $search);
     }
 
     /**

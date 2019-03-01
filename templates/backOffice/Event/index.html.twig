@@ -1,5 +1,46 @@
 {% extends 'backOffice/base.html.twig' %}
-
+{% block title %}Evenements{% endblock %}
 {% block body %}
+
+    <h1 class="uk-text-center">Listes des derniers évenements pubilier</h1>
+    <ul class="uk-subnav" uk-margin>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}">Ajouter un évenement</a></li>
+    </ul>
+    {% for row in events|batch(3) %}
+        <div class="uk-child-width-1-3@m" uk-grid>
+
+            {% for event in row %}
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <a href="#">
+                                <img src="{{ vich_uploader_asset(event, 'imageFile') }}" width="1500" style="height: 100%;" alt="{{ event.imageName }}">
+                            </a>
+                        </div>
+                        <ul class="uk-iconnav">
+                            <li><a href="" uk-icon="icon: check"></a></li>
+                        </ul>
+
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">{{ event.title|slice(0, 22) }}...</h3>
+                            <p>{{ event.seoDescription|slice(0, 70) }}...</p>
+                            <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                                <div>
+                                    <a class="uk-button uk-button-text" href="#">Lire l'article</a>
+                                </div>
+                                <a href="#" title="Editer l'article" style="padding-left: 100px;">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="#" onclick="return confirm('Are you sure?')" title="Supprimer l'article" data-turbolinks="false">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
 
 {% endblock %}
