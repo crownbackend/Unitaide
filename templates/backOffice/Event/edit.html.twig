@@ -1,0 +1,80 @@
+{% extends 'backOffice/base.html.twig' %}
+{% block title %}Modifier un évenement {% endblock %}
+{% block body %}
+
+    {{ form_start(form) }}
+    <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">Modifier un evenement</legend>
+        <div class="uk-margin">
+            {{ form_label(form.title, 'Titre') }}
+            {{ form_widget(form.title) }}
+            {{ form_errors(form.title) }}
+        </div>
+        <div class="uk-margin">
+            {{ form_label(form.seoDescription, 'Description pour le référencement') }}
+            {{ form_widget(form.seoDescription) }}
+            {{ form_errors(form.seoDescription) }}
+        </div>
+        <div class="uk-margin">
+            {{ form_label(form.description, 'Description') }}
+            {{ form_widget(form.description, {'attr': {'class': 'ckeditor'}}) }}
+            {{ form_errors(form.description) }}
+        </div>
+
+        <div class="uk-margin">
+            {{ form_label(form.imageFile, 'Ajouter une miniature pour l\'enevenement') }}
+            {{ form_widget(form.imageFile, {'attr': {'required': 'false'}}) }}
+            {{ form_errors(form.imageFile) }}
+        </div>
+
+        <div class="uk-margin">
+            {{ form_label(form.imageFiles, 'Ajouter des images') }}
+            {{ form_widget(form.imageFiles) }}
+            {{ form_errors(form.imageFiles) }}
+        </div>
+
+        <div class="uk-margin">
+            {{ form_label(form.endEvent, 'Date de l\'evenement') }}
+            {{ form_widget(form.endEvent) }}
+            {{ form_errors(form.endEvent) }}
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+                <ul class="uk-slideshow-items">
+                    {% for image in event.images %}
+                        <li>
+                            <img data-src="{{ vich_uploader_asset(image, 'imageFile') }}" width="1800" height="1200" alt="{{ image.name }}" uk-cover uk-img="target: !.uk-slideshow-items">
+
+                            <a class="uk-position-top-right uk-position-small uk-hidden-hover" title="supprimer l'image" href="{{ path('admin_delete_image', {'id': image.id}) }}" data-turbolinks="false">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </li>
+
+                    {% endfor %}
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+            </div>
+        </div>
+
+        <button type="submit" class="uk-button uk-button-primary">Ajouter</button>
+    </fieldset>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('textarea.ckeditor').ckeditor();
+        });
+    </script>
+{% endblock %}

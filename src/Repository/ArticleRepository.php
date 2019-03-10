@@ -27,7 +27,6 @@ class ArticleRepository extends ServiceEntityRepository
     public function findBySLug(string $slug)
     {
         $query = $this->createQueryBuilder('a')
-                ->addSelect('a')
                 ->where('a.slug = :slug')
                 ->setParameter('slug', $slug)
                 ->getQuery();

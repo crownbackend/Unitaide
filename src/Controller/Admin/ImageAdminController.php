@@ -24,8 +24,14 @@ class ImageAdminController extends AbstractController
         // get id for image
         $image = $this->getDoctrine()->getRepository(Image::class)->find($id);
         $article = $image->getArticle();
+        $event = $image->getEvent();
         // remove and flush bdd
         $em = $this->getDoctrine()->getManager();
+        if($event) {
+            $em->remove($image);
+            $em->flush();
+            return $this->redirectToRoute('admin_edit_event', ['id' => $event->getId()]);
+        }
         $em->remove($image);
         $em->flush();
         return $this->redirectToRoute('admin_edit_article', ['id' => $article->getId()]);

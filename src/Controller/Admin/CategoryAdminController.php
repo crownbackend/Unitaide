@@ -64,8 +64,7 @@ class CategoryAdminController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
+            $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('admin_list_category');
         }
 

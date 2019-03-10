@@ -1,6 +1,8 @@
 {
   "build/app.css": "/build/app.css",
   "build/app.js": "/build/app.js",
+  "build/jquery-tags-input.css": "/build/jquery-tags-input.css",
+  "build/jquery-tags-input.js": "/build/jquery-tags-input.js",
   "build/runtime.js": "/build/runtime.js",
   "build/uikit.css": "/build/uikit.css",
   "build/uikit.js": "/build/uikit.js",

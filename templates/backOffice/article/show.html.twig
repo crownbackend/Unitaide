@@ -39,7 +39,7 @@
         <ul class="uk-slideshow-items">
         {% for image in article.images %}
             <li>
-                <img data-src="{{ asset('images/articles/'~image.name) }}" width="1800" height="1200" alt="{{ image.name }}" uk-cover uk-img="target: !.uk-slideshow-items">
+                <img data-src="{{ vich_uploader_asset(image, 'imageFile') }}" width="1800" height="1200" alt="{{ image.name }}" uk-cover uk-img="target: !.uk-slideshow-items">
             </li>
         {% endfor %}
         </ul>

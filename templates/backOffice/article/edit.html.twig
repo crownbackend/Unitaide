@@ -52,7 +52,7 @@
                 <ul class="uk-slideshow-items">
                     {% for image in article.images %}
                     <li>
-                        <img data-src="{{ asset('images/articles/'~image.name) }}" width="1800" height="1200" alt="{{ image.name }}" uk-cover uk-img="target: !.uk-slideshow-items">
+                        <img data-src="{{ vich_uploader_asset(image, 'imageFile') }}" width="1800" height="1200" alt="{{ image.name }}" uk-cover uk-img="target: !.uk-slideshow-items">
 
                         <a class="uk-position-top-right uk-position-small uk-hidden-hover" title="supprimer l'image" href="{{ path('admin_delete_image', {'id': image.id}) }}" data-turbolinks="false">
                             <i class="fas fa-trash-alt"></i>

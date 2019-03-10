@@ -1,0 +1,52 @@
+{% extends 'backOffice/base.html.twig' %}
+
+{% block title %} {{ event.title }} {% endblock %}
+
+{% block body %}
+
+    <article class="uk-article">
+
+        <h1 class="uk-article-title">{{ event.title }}</h1>
+
+        <p class="uk-article-meta">
+            Article publier le {{ event.createdAt|date('m/d/Y à H:i') }}
+            {% if event.updatedAt %}
+                et modifier la dérnier fois le {{ event.updatedAt|date('m/d/y à H:i') }}
+            {% endif %}
+            <a href="{{ path('admin_edit_event', {'id': event.id}) }}" title="Editer l'article" style="padding-left: 100px;">
+                <i class="far fa-edit"></i>
+            </a>
+            <a href="#" onclick="return confirm('Are you sure?')" title="Supprimer l'article" data-turbolinks="false">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+        </p>
+
+
+        <p>{{ event.description|raw }}</p>
+
+        {#<div class="uk-grid-small uk-child-width-auto" uk-grid>#}
+            {#<div>Tags:#}
+                {#{% for tag in article.tags|split(',') %}#}
+                    {#<span class="uk-label uk-label-success">{{ tag }}</span>#}
+                {#{% endfor %}#}
+            {#</div>#}
+        {#</div>#}
+
+    </article>
+
+    <div class="uk-h3">Images de l'evenement</div>
+    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow>
+        <ul class="uk-slideshow-items">
+            {% for image in event.images %}
+                <li>
+                    <img data-src="{{ vich_uploader_asset(image, 'imageFile') }}" width="1800" height="1200" alt="{{ image.name }}" uk-cover uk-img="target: !.uk-slideshow-items">
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+    </div>
+
+{% endblock %}

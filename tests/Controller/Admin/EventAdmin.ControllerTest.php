@@ -25,4 +25,25 @@ class EventAdminControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
+    public function testEdit()
+    {
+        $client = static::createClient();
+
+        $client->request('POST', '/admin/events/editer/1');
+        $crawler = $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testDelete()
+    {
+        $client = static::createClient();
+
+        $client->request('POST', '/admin/events/delete/1');
+        $crawler = $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
 }

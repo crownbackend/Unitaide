@@ -23,6 +23,15 @@
         "/build/runtime.js",
         "/build/uikit-icon.js"
       ]
+    },
+    "jquery-tags-input": {
+      "js": [
+        "/build/runtime.js",
+        "/build/jquery-tags-input.js"
+      ],
+      "css": [
+        "/build/jquery-tags-input.css"
+      ]
     }
   }
 }
