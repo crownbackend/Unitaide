@@ -2,6 +2,7 @@
 /.env
 /public/bundles/
 /public/images/
+/public/build/
 /var/
 /vendor/
 /.idea
