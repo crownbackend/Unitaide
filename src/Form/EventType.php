@@ -48,6 +48,12 @@ class EventType extends AbstractType
                 'required' => false
             ])
             ->add('endEvent')
+            ->add('tags', TextType::class, [
+                'attr' => [
+                    'class' => 'uk-input',
+                    'placeholder' => 'Séparer chaque mot par une virgule : paris, bruxelle, rome'
+                ]
+            ])
         ;
     }
 

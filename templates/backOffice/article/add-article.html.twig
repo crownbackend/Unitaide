@@ -34,6 +34,12 @@
             </div>
 
             <div class="uk-margin">
+                {{ form_label(form.tags, 'Ajouter des tags') }}
+                {{ form_widget(form.tags) }}
+                {{ form_errors(form.tags) }}
+            </div>
+
+            <div class="uk-margin">
                 {{ form_label(form.imageFileMiniature, 'Ajouter une miniature pour l\'article') }}
                 {{ form_widget(form.imageFileMiniature, {'attr': {'required': 'true'}}) }}
                 {{ form_errors(form.imageFileMiniature) }}
@@ -45,11 +51,6 @@
                 {{ form_errors(form.imageFiles) }}
             </div>
 
-            <div class="uk-margin">
-                {{ form_label(form.tags, 'Ajouter des tags') }}
-                {{ form_widget(form.tags) }}
-                {{ form_errors(form.tags) }}
-            </div>
             <button type="submit" class="uk-button uk-button-primary">Ajouter</button>
         </fieldset>
     {{ form_end(form) }}

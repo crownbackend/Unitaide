@@ -36,7 +36,7 @@ class ArticleRepository extends ServiceEntityRepository
     /**
      * @return mixed
      */
-    public function findThreeArticle()
+    public function findByThreeArticle()
     {
         $query = $this->createQueryBuilder('a')
             ->orderBy('a.createdAt', 'DESC')
@@ -50,7 +50,7 @@ class ArticleRepository extends ServiceEntityRepository
     /**
      * @return mixed
      */
-    public function findSixArticle()
+    public function findBySixArticle()
     {
         $query = $this->createQueryBuilder('a')
             ->orderBy('a.createdAt', 'DESC')

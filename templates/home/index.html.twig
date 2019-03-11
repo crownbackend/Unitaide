@@ -88,6 +88,8 @@
         </div>
     </div>
 
+    <hr />
+
     <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center animate-box ">
             <div class="heading-section">
@@ -101,7 +103,7 @@
             <div class="row">
                 {% for article in articles %}
                 <div class="col-md-6 text-center animate-box">
-                    <div class="work" style="background-image: url({{ asset('images/miniature/'~article.imageNameMiniature) }});">
+                    <div class="work" style="background-image: url({{ vich_uploader_asset(article, 'imageFileMiniature') }});">
                         <a href="#" class="view">
                             <span>{{ article.title }}</span>
                         </a>
@@ -112,6 +114,31 @@
         </div>
     </div>
     <p class="text-center view-button animate-box"><a href="{{ path('blog') }}" class="btn btn-primary btn-outline btn-lg">Voir tous nos projets</a></p>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center animate-box ">
+            <div class="heading-section">
+                <h2>Nos Evenements</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="fh5co-work-section">
+        <div class="container">
+            <div class="row">
+                {% for event in events %}
+                    <div class="col-md-6 text-center animate-box">
+                        <div class="work" style="background-image: url({{ vich_uploader_asset(event, 'imageFile') }});">
+                            <a href="#" class="view">
+                                <span>{{ event.title }}</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <p class="text-center view-button animate-box"><a href="{{ path('event') }}" class="btn btn-primary btn-outline btn-lg">Voir tous nos évenements</a></p>
 
 
 {% endblock %}

@@ -32,4 +32,27 @@ class EventRepository extends ServiceEntityRepository
             ->getQuery();
         return $query->getOneOrNullResult();
     }
+
+    /**
+     * @return mixed
+     */
+    public function findBySixEvent()
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.createdAt', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByThreeEvent()
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.createdAt', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

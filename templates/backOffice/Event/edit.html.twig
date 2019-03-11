@@ -23,8 +23,14 @@
         </div>
 
         <div class="uk-margin">
+            {{ form_label(form.tags, 'Ajouter des tags') }}
+            {{ form_widget(form.tags) }}
+            {{ form_errors(form.tags) }}
+        </div>
+
+        <div class="uk-margin">
             {{ form_label(form.imageFile, 'Ajouter une miniature pour l\'enevenement') }}
-            {{ form_widget(form.imageFile, {'attr': {'required': 'false'}}) }}
+            {{ form_widget(form.imageFile) }}
             {{ form_errors(form.imageFile) }}
         </div>
 

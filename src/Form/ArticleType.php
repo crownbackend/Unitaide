@@ -41,7 +41,12 @@ class ArticleType extends AbstractType
                 ]
 
             ])
-            ->add('tags', TextType::class)
+            ->add('tags', TextType::class, [
+                'attr' => [
+                    'class' => 'uk-input',
+                    'placeholder' => 'Séparer chaque mot par une virgule : paris, bruxelle, rome'
+                ]
+            ])
             ->add('imageFileMiniature', FileType::class, [
                 'required' => false
             ])

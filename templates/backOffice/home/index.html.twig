@@ -8,8 +8,8 @@
 
     <h2>Voici la listes des dernier articles publier sur le site </h2>
     <ul class="uk-subnav" uk-margin>
-        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_category') }}">Ajouter une Categorie</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}">Ajouter un evenements</a></li>
     </ul>
 
@@ -46,7 +46,39 @@
         </div>
     {% endfor %}
 
-
     <h1 class="uk-text-center">Listes des derniers Evenement pubilier sur le site</h1>
+
+    {% for row in events|batch(3) %}
+        <div class="uk-child-width-1-3@m" uk-grid>
+            {% for event in row %}
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <a href="{{ path('admin_show_event', {'slug': event.slug}) }}">
+                                <img src="{{ vich_uploader_asset(event, 'imageFile') }}" width="500" style="height: 100%;" alt="{{ event.imageName }}">
+                            </a>
+                        </div>
+                        {% set tags = event.tags|split(',')  %}
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">{{ event.title|slice(0, 22) }}...</h3>
+                            <p>{{ event.seoDescription|slice(0, 70) }}...</p>
+                            <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                                <div>
+                                    <a class="uk-button uk-button-text" href="{{ path('admin_show_event', {'slug': event.slug}) }}">Lire la suite</a>
+                                </div>
+                                <a href="{{ path('admin_edit_event', {'id': event.id}) }}" title="Editer l'article" style="padding-left: 100px;">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="{{ path('admin_delete_event', {'id': event.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
 
 {% endblock %}

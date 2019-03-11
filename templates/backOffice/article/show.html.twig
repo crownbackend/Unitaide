@@ -9,7 +9,7 @@
         <h1 class="uk-article-title">{{ article.title }}</h1>
 
         <p class="uk-article-meta">
-            Article publier le {{ article.createdAt|date('m/d/Y à H:i') }}
+            Article publier le {{ article.createdAt|date('d/m/Y à H:i') }}
             {% if article.updatedAt %}
             et modifier la dérnier fois le {{ article.updatedAt|date('m/d/y à H:i') }}
             {% endif %}
@@ -33,6 +33,16 @@
         </div>
 
     </article>
+
+    <div class="uk-h3">Miniature de l'article</div>
+
+    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow>
+        <ul class="uk-slideshow-items">
+                <li>
+                    <img data-src="{{ vich_uploader_asset(article, 'imageFileMiniature') }}" width="1800" height="1200" alt="{{ article.imageNameMiniature }}" uk-cover uk-img="target: !.uk-slideshow-items">
+                </li>
+        </ul>
+    </div>
 
     <div class="uk-h3">Images de l'article</div>
     <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow>

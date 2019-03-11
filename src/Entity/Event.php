@@ -99,6 +99,11 @@ class Event
     private $imageFiles;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $tags;
+
+    /**
      * Event constructor.
      * @throws \Exception
      */
@@ -277,6 +282,18 @@ class Event
             $this->addImage($image);
         }
         $this->imageFiles = $imageFiles;
+        return $this;
+    }
+
+    public function getTags(): ?string
+    {
+        return $this->tags;
+    }
+
+    public function setTags(string $tags): self
+    {
+        $this->tags = $tags;
+
         return $this;
     }
 }

@@ -24,15 +24,25 @@
 
         <p>{{ event.description|raw }}</p>
 
-        {#<div class="uk-grid-small uk-child-width-auto" uk-grid>#}
-            {#<div>Tags:#}
-                {#{% for tag in article.tags|split(',') %}#}
-                    {#<span class="uk-label uk-label-success">{{ tag }}</span>#}
-                {#{% endfor %}#}
-            {#</div>#}
-        {#</div>#}
+        <div class="uk-grid-small uk-child-width-auto" uk-grid>
+            <div>Tags:
+                {% for tag in event.tags|split(',') %}
+                    <span class="uk-label uk-label-success">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
 
     </article>
+
+    <div class="uk-h3">Miniature de l'évenement</div>
+
+    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow>
+        <ul class="uk-slideshow-items">
+            <li>
+                <img data-src="{{ vich_uploader_asset(event, 'imageFile') }}" width="1800" height="1200" alt="{{ event.imageName }}" uk-cover uk-img="target: !.uk-slideshow-items">
+            </li>
+        </ul>
+    </div>
 
     <div class="uk-h3">Images de l'evenement</div>
     <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow>
