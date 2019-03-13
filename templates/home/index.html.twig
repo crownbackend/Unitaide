@@ -104,7 +104,7 @@
                 {% for article in articles %}
                 <div class="col-md-6 text-center animate-box">
                     <div class="work" style="background-image: url({{ vich_uploader_asset(article, 'imageFileMiniature') }});">
-                        <a href="#" class="view">
+                        <a href="{{ path('show_article', {'slug': article.slug}) }}" class="view">
                             <span>{{ article.title }}</span>
                         </a>
                     </div>
@@ -129,7 +129,7 @@
                 {% for event in events %}
                     <div class="col-md-6 text-center animate-box">
                         <div class="work" style="background-image: url({{ vich_uploader_asset(event, 'imageFile') }});">
-                            <a href="#" class="view">
+                            <a href="{{ path('show_event', {'slug': event.slug}) }}" class="view">
                                 <span>{{ event.title }}</span>
                             </a>
                         </div>

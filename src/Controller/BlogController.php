@@ -22,7 +22,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/article/{slug}")
+     * @Route("/article/{slug}", name="show_article")
      * @param ArticleRepository $articleRepository
      * @param string $slug
      * @return Response

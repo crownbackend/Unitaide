@@ -1025,3 +1025,7 @@ input[type="text"] {
 #fh5co-work-section {
   padding-bottom: 0px;
 }
+
+.pagination > li > a, .pagination > li > span {
+  color: #7cb342;
+}

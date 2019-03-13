@@ -18,7 +18,7 @@
                 {% for article in articles %}
                     <div class="col-md-6 text-center animate-box">
                         <div class="work" style="background-image: url({{ vich_uploader_asset(article, 'imageFileMiniature') }});">
-                            <a href="#" class="view">
+                            <a href="{{ path('app_blog_article', {'slug': article.slug}) }}" class="view">
                                 <span>{{ article.title }}</span>
                             </a>
                         </div>
@@ -27,5 +27,25 @@
             </div>
         </div>
     </div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
 {% endblock %}
