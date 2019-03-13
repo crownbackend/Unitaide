@@ -30,6 +30,18 @@ class ArticleRepositoryTest extends KernelTestCase
         $this->assertCount(1, $search);
     }
 
+    public function testFindBySixArticle()
+    {
+        $search = $this->entityManager->getRepository(Article::class)->FindBySixArticle();
+        $this->assertCount(2, $search);
+    }
+
+    public function testFindByThreeArticle()
+    {
+        $search = $this->entityManager->getRepository(Article::class)->findByThreeArticle();
+        $this->assertCount(2, $search);
+    }
+
     /**
      * {@inheritDoc}
      */

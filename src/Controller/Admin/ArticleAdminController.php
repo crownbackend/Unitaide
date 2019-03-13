@@ -40,7 +40,7 @@ class ArticleAdminController extends AbstractController
     public function Show(ArticleRepository $articleRepository, string $slug): Response
     {
         return $this->render('backOffice/article/show.html.twig', [
-            'article' => $articleRepository->findBySLug($slug)
+            'article' => $articleRepository->findBySlug($slug)
         ]);
     }
 

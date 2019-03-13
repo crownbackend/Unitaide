@@ -24,7 +24,7 @@ class ArticleRepository extends ServiceEntityRepository
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findBySLug(string $slug)
+    public function findBySlug(string $slug)
     {
         $query = $this->createQueryBuilder('a')
                 ->where('a.slug = :slug')
