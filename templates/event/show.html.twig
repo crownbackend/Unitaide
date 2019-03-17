@@ -27,18 +27,9 @@
         </div>
 
 
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2 text-center animate-box">
-                <div class="about-content">
-                    {% for tag in event.tags|split(',') %}
-                        <span class="btn btn-primary">{{ tag }}</span>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
+        {% if event.endEvent|date('U') > 'now'|date('U') %}
         <div class="row animate-box" id="test">
-            <div class="col-md-8 col-md-offset-2 text-center animate-box">
+            <div class="col-md-9 col-md-offset-2 text-center animate-box">
                 <div class="about-content">
                     <style>
                         .time {
@@ -55,6 +46,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
 
         <div id="fh5co-work-section">
             <div class="container">
@@ -64,6 +56,16 @@
                             <div class="work" style="background-image: url({{ vich_uploader_asset(image, 'imageFile') }});">
                             </div>
                         </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-1 animate-box">
+                <div class="about-content">
+                    {% for tag in event.tags|split(',') %}
+                        <span class="btn btn-primary">{{ tag }}</span>
                     {% endfor %}
                 </div>
             </div>
@@ -136,6 +138,12 @@
             }
         };
 
+        setInterval(function () {
+            if(countdownManager.targetTime < new Date()) {
+                $('#test').hide();
+            }
+        }, 1000);
+        
         jQuery(function($){
             // Lancement du compte à rebours au chargement de la page
             countdownManager.init();

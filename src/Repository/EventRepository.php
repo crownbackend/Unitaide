@@ -55,4 +55,16 @@ class EventRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+
+    public function findBySearch($search)
+    { //SELECT * FROM `article` WHERE title LIKE "%keep%"
+        $query = $this->createQueryBuilder('e')
+            ->where('e.title LIKE :name')
+            ->orWhere('e.description LIKE :name')
+            ->setParameter('name', "%$search%")
+            ->getQuery()
+            ->getResult()
+        ;
+        return $query;
+    }
 }

@@ -18,7 +18,7 @@
                 {% for article in articles %}
                     <div class="col-md-6 text-center animate-box">
                         <div class="work" style="background-image: url({{ vich_uploader_asset(article, 'imageFileMiniature') }});">
-                            <a href="{{ path('app_blog_article', {'slug': article.slug}) }}" class="view">
+                            <a href="{{ path('show_article', {'slug': article.slug}) }}" class="view">
                                 <span>{{ article.title }}</span>
                             </a>
                         </div>

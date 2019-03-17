@@ -1,6 +1,7 @@
 {% extends 'backOffice/base.html.twig' %}
 {% block title %}Résultats des recherches {% endblock %}
 {% block body %}
+
     {% if articles %}
         <h1 class="uk-text-center">Listes des articles trouver</h1>
         {% for row in articles|batch(3) %}
@@ -39,8 +40,9 @@
                 {% endfor %}
             </div>
         {% endfor %}
-    {% else %}
-        <h1>Aucune recherche n'est trouver</h1>
+
+        {% else %}
+           <h1>rien</h1>
     {% endif %}
 
 {% endblock %}
