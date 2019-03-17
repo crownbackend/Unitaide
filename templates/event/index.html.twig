@@ -15,15 +15,18 @@
     <div id="fh5co-work-section">
         <div class="container">
             <div class="row">
-                {% for event in events %}
+                {% for event in pagination %}
                     <div class="col-md-6 text-center animate-box">
                         <div class="work" style="background-image: url({{ vich_uploader_asset(event, 'imageFile') }});">
-                            <a href="#" class="view">
+                            <a href="{{ path('show_event', {'slug': event.slug}) }}" class="view">
                                 <span>{{ event.title }}</span>
                             </a>
                         </div>
                     </div>
                 {% endfor %}
+            </div>
+            <div class="text-center">
+                {{ knp_pagination_render(pagination, 'pagination/pagination-front.html.twig') }}
             </div>
         </div>
     </div>

@@ -61,12 +61,23 @@ class ArticleRepository extends ServiceEntityRepository
         return $query;
     }
 
+
     public function findBySearch($search)
-    { //SELECT * FROM `article` WHERE title LIKE "%keep%"
+    {
         $query = $this->createQueryBuilder('a')
             ->where('a.title LIKE :name')
             ->orWhere('a.description LIKE :name')
             ->setParameter('name', "%$search%")
+            ->getQuery()
+            ->getResult()
+        ;
+        return $query;
+    }
+
+    public function findByArticle()
+    {
+        $query = $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'DESC')
             ->getQuery()
             ->getResult()
         ;

@@ -1029,3 +1029,15 @@ input[type="text"] {
 .pagination > li > a, .pagination > li > span {
   color: #7cb342;
 }
+
+.pagination > .active > a {
+  background-color: #7cb342;
+  border-color: #7cb342;
+}
+.pagination > .active > a:hover {
+  background-color: #7cb342;
+  border-color: #7cb342;
+}
+.pagination > li > a:hover {
+  color: #7cb342;
+}

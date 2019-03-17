@@ -67,4 +67,14 @@ class EventRepository extends ServiceEntityRepository
         ;
         return $query;
     }
+
+    public function findByEvent()
+    {
+        $query = $this->createQueryBuilder('e')
+            ->orderBy('e.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+        return $query;
+    }
 }

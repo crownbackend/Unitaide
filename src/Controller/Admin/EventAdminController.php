@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,11 +22,23 @@ class EventAdminController extends AbstractController
     /**
      * @Route("/", name="admin_list_event")
      * @param EventRepository $eventRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      */
-    public function index(EventRepository $eventRepository): Response
+    public function index(EventRepository $eventRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        return $this->render('backOffice/Event/index.html.twig', ['events' => $eventRepository->findAll()]);
+        $query = $eventRepository->findByEvent();
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            12
+        );
+
+        return $this->render('backOffice/Event/index.html.twig', [
+            'pagination' => $pagination
+        ]);
     }
 
     /**

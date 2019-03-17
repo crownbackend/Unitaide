@@ -7,6 +7,7 @@ use App\Entity\Category;
 use App\Form\ArticleType;
 use App\Form\CategoryType;
 use App\Repository\ArticleRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,11 +24,23 @@ class ArticleAdminController extends AbstractController
     /**
      * @Route("/", name="admin_list_article")
      * @param ArticleRepository $articleRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      */
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        return $this->render('backOffice/article/index.html.twig', ['articles' => $articleRepository->findAll()]);
+
+        $query = $articleRepository->findByArticle();
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            12
+        );
+
+        return $this->render('backOffice/article/index.html.twig', [
+            'pagination' => $pagination
+        ]);
     }
 
     /**

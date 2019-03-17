@@ -16,7 +16,7 @@
             </div>
         </li>
     </ul>
-    {% for row in articles|batch(3) %}
+    {% for row in pagination|batch(3) %}
         <div class="uk-child-width-1-3@m" uk-grid>
 
         {% for article in row %}
@@ -52,6 +52,10 @@
         {% endfor %}
         </div>
     {% endfor %}
+
+    <div class="uk-margin-top uk-text-center">
+        {{ knp_pagination_render(pagination, 'pagination/pagination-back.html.twig') }}
+    </div>
 
 
 
