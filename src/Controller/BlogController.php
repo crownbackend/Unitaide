@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use Knp\Component\Pager\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,10 +17,16 @@ class BlogController extends AbstractController
      * @param ArticleRepository $articleRepository
      * @return Response
      */
-    public function blog(ArticleRepository $articleRepository): Response
+    public function blog(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $query = $articleRepository->findAll();
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            1
+        );
         return $this->render('blog/index.html.twig', [
-            'articles' => $articleRepository->findAll()
+            'pagination' => $pagination
         ]);
     }
 
