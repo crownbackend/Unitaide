@@ -5,13 +5,16 @@
 {% block body %}
 
     <h1 class="uk-text-center">Bienvenue sur votre espace admin</h1>
-
-    <h2>Voici la listes des dernier articles publier sur le site </h2>
     <ul class="uk-subnav" uk-margin>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_category') }}">Ajouter une Categorie</a></li>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}">Ajouter un evenements</a></li>
     </ul>
+{% if articles %}
+    <h1 class="uk-text-center">Voici la listes des dernier articles publier sur le site </h1>
+{% else %}
+    <h1 class="uk-text-center">Aucun article n'est disponible pour le moment</h1>
+{% endif %}
 
     {% for row in articles|batch(3) %}
         <div class="uk-child-width-1-3@m" uk-grid>
@@ -45,9 +48,11 @@
         {% endfor %}
         </div>
     {% endfor %}
-
+{% if events %}
     <h1 class="uk-text-center">Listes des derniers Evenement pubilier sur le site</h1>
-
+{% else %}
+    <h1 class="uk-text-center">Aucun évenement n'est disponible pour le moment</h1>
+{% endif %}
     {% for row in events|batch(3) %}
         <div class="uk-child-width-1-3@m" uk-grid>
             {% for event in row %}

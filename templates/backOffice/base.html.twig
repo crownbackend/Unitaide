@@ -32,17 +32,20 @@
             <li {% if app.request.attributes.get('_route') == 'admin_index' %}class="uk-active"{% endif %}>
                 <a href="{{ path('admin_index') }}">Accueil</a>
             </li>
-            <li {% if app.request.attributes.get('_route') == 'admin_list_article' %}class="uk-active"{% endif %}>
-                <a href="{{ path('admin_list_article') }}">Articles</a>
-            </li>
             <li {% if app.request.attributes.get('_route') == 'admin_list_category' %}class="uk-active"{% endif %}>
                 <a href="{{ path('admin_list_category') }}">Catégorie</a>
+            </li>
+            <li {% if app.request.attributes.get('_route') == 'admin_list_article' %}class="uk-active"{% endif %}>
+                <a href="{{ path('admin_list_article') }}">Articles</a>
             </li>
             <li {% if app.request.attributes.get('_route') == 'admin_list_event' %}class="uk-active"{% endif %}>
                 <a href="{{ path('admin_list_event') }}">Evenements</a>
             </li>
             <li>
                 <a href="#">Newsletter</a>
+            </li>
+            <li>
+                <a href="#">Idée des internaute</a>
             </li>
         </ul>
 
@@ -74,6 +77,9 @@
                 </li>
                 <li>
                     <a href="#">Newsletter</a>
+                </li>
+                <li>
+                    <a href="#">Idée des internaute</a>
                 </li>
             </ul>
         </div>
