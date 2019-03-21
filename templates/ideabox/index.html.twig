@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block title %}Une idée à nous paratger ?{% endblock %}
+{% block body %}
+
+    <div id="fh5co-intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 animate-box text-center">
+                    <h2 class="intro-heading">Une idée a nous paratger ?</h2>
+                    <p>
+                        Une idée à nous partager ? un événement à nous proposer ? des questions ? ou d'autre idées à proposer .
+                        dites nous tous, on est à l'écoute de toute initiative
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fh5co-contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-push-1 animate-box">
+                    <div class="row">
+                        {{ form_start(form) }}
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form_widget(form.name) }}
+                                {{ form_errors(form.name) }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form_widget(form.email) }}
+                                {{ form_errors(form.email) }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form_widget(form.telephone) }}
+                                {{ form_errors(form.telephone) }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form_widget(form.idea) }}
+                                {{ form_errors(form.idea) }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Envoyer votre idée" class="btn btn-primary">
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: fh5co-contact-section -->
+
+{% endblock %}

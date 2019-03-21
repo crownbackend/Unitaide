@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\IdeaBoxRepository")
@@ -17,11 +18,21 @@ class IdeaBox
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 30,
+     *      minMessage = "Votre text doit contenir minimum {{ limit }} caractères !"
+     * )
      * @ORM\Column(type="text")
      */
     private $idea;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      minMessage = "Votre nom doit contenir minimum {{ limit }} caractères !"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -32,6 +43,8 @@ class IdeaBox
     private $telephone;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(type="string", length=255)
      */
     private $email;
