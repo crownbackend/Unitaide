@@ -4,7 +4,7 @@
 
     <h1 class="uk-text-center">Listes des derniers évenements pubilier</h1>
     <ul class="uk-subnav" uk-margin>
-        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}">Ajouter un évenement</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}" data-turbolinks="false">Ajouter un évenement</a></li>
         <li>
             <div class="uk-margin">
                 <form class="uk-search uk-search-default" method="GET" action="{{ path('admin_search_event') }}">

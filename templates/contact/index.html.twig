@@ -25,20 +25,24 @@
                     </ul>
                 </div>
                 <div class="col-md-7 col-md-push-1 animate-box">
+                    {{ form_start(form) }}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nom">
+                                {{ form_widget(form.name) }}
+                                {{ form_errors(form.name) }}
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email">
+                                {{ form_widget(form.email) }}
+                                {{ form_errors(form.email) }}
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+                                {{ form_widget(form.content) }}
+                                {{ form_errors(form.content) }}
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -47,6 +51,7 @@
                             </div>
                         </div>
                     </div>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>

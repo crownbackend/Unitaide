@@ -23,7 +23,7 @@ class NewsletterAdminController extends AbstractController
      * @param MailerService $mailerService
      * @param \Swift_Mailer $mailer
      * @param Request $request
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function sendEmail(NewsletterRepository $newsletterRepository, MailerService $mailerService, \Swift_Mailer $mailer, Request $request)
     {
@@ -39,10 +39,11 @@ class NewsletterAdminController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
 
             $data = $form->getData();
+            $mailerService->sendMail($mailer, $email_tab, 'contact@unitaide.org', $data['name'], $data['content']);
 
-            $mailerService->sendMail($mailer, $email_tab, 'unitaide@hotmail.com', $data['name'], $data['content']);
+            $this->addFlash('mail_send_success', 'Email envoyer avec sucés !');
+            return $this->redirectToRoute('admin_index');
         }
-
 
         return $this->render('backOffice/newsletter/index.html.twig', [
             'form' => $form->createView()

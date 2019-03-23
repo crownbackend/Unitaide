@@ -13,8 +13,26 @@ class SendMailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('content', TextareaType::class)
+            ->add('name', TextType::class, [
+                'attr' => [
+                    'class' => 'uk-input',
+                    'placeholder' => 'Sujet des émails'
+                ],
+                'label_attr' => [
+                    'class' => 'uk-form-label'
+                ]
+            ])
+            ->add('content', TextareaType::class,[
+                'attr' => [
+                    'class' => 'uk-textarea ckeditor',
+                    'rows' => '5',
+                    'placeholder' => 'Contenu des emails'
+                ],
+                'label_attr' => [
+                    'class' => 'uk-form-label'
+                ]
+
+            ])
         ;
     }
 

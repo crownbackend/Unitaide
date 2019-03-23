@@ -6,7 +6,7 @@
 
     <h1 class="uk-text-center">Listes des derniers articles pubilier</h1>
     <ul class="uk-subnav" uk-margin>
-        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}" data-turbolinks="false">Ajouter un article</a></li>
         <li>
             <div class="uk-margin">
                 <form class="uk-search uk-search-default" method="GET" action="{{ path('admin_search_article') }}">

@@ -6,11 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MailerService extends AbstractController
 {
-    public function sendMail(\Swift_Mailer $mailer, $to, $from, $subject, $content)
+    public function sendMail(\Swift_Mailer $mailer, $bbc, $from, $subject, $content)
     {
         $message = (new \Swift_Message($subject))
             ->setFrom($from)
-            ->setBcc($to)
+            ->setBcc($bbc)
             ->setBody(
                 $this->renderView(
                 // templates/emails/registration.html.twig
@@ -18,6 +18,19 @@ class MailerService extends AbstractController
                     ['content' => $content]
                 ),
                 'text/html'
+            )
+        ;
+        $mailer->send($message);
+    }
+
+    public function contact(\Swift_Mailer $mailer, $to, $from, $subject, $content)
+    {
+        $message = (new \Swift_Message($subject))
+            ->setFrom($from)
+            ->setTo($to)
+            ->setBody(
+                $content,
+                'text/plain'
             )
         ;
         $mailer->send($message);
