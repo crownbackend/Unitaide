@@ -27,7 +27,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/une-idee-a-nous-paratger-?", name="idea_box")
+     * @Route("/une-idee-a-nous-paratger", name="idea_box")
      * @param Request $request
      * @return Response
      */

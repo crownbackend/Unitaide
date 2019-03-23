@@ -11,7 +11,7 @@ class ImageAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('DELETE', '/admin/supprimer/images/1');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

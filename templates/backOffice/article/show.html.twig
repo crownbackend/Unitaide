@@ -13,7 +13,7 @@
             {% if article.updatedAt %}
             et modifier la dérnier fois le {{ article.updatedAt|date('m/d/y à H:i') }}
             {% endif %}
-            <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" style="padding-left: 100px;">
+            <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" data-turbolinks="false" style="padding-left: 100px;">
                 <i class="far fa-edit"></i>
             </a>
             <a href="{{ path('admin_delete_article', {'id': article.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article" data-turbolinks="false">

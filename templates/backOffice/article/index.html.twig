@@ -38,7 +38,7 @@
                             <div>
                                 <a class="uk-button uk-button-text" href="{{ path('admin_show_article', {'slug': article.slug}) }}">Lire l'article</a>
                             </div>
-                            <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" style="padding-left: 100px;">
+                            <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" data-turbolinks="false" style="padding-left: 100px;">
                                 <i class="far fa-edit"></i>
                             </a>
                             <a href="{{ path('admin_delete_article', {'id': article.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article" data-turbolinks="false">

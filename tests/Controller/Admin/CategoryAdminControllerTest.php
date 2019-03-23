@@ -11,7 +11,7 @@ class CategoryAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/admin/categorie/');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -21,7 +21,7 @@ class CategoryAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('POST', '/admin/categorie/ajouter-categorie');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -31,7 +31,7 @@ class CategoryAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/admin/categorie/editer/2');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -41,7 +41,7 @@ class CategoryAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/admin/categorie/delete/2');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

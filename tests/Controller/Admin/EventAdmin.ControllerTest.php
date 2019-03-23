@@ -11,7 +11,7 @@ class EventAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/admin/events/');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -21,7 +21,7 @@ class EventAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('POST', '/admin/events/ajouter-un-evenement');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -31,7 +31,7 @@ class EventAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('POST', '/admin/events/editer/1');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -41,7 +41,7 @@ class EventAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('POST', '/admin/events/delete/1');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

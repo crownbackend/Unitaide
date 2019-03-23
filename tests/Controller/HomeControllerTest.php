@@ -14,4 +14,18 @@ class HomeControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
+    public function testNewIdea()
+    {
+        $client = static::createClient();
+
+        $client->request('POST', '/une-idee-a-nous-paratger', [
+            'name' => 'belha',
+            'telephone' => 02,
+            'email' => 'nabile333@live.fr',
+            'idea' => 'lorem ipsum'
+        ]);
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
 }

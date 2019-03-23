@@ -11,7 +11,17 @@ class HomeAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/admin/');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testShowIdea()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/admin/idea-box/show/1');
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

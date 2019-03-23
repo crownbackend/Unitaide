@@ -11,7 +11,7 @@ class ArticleAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/admin/article/');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -21,7 +21,7 @@ class ArticleAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/admin/article/detail/hello-word');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -31,7 +31,7 @@ class ArticleAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('POST', '/admin/article/ajouter-un-article');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -41,7 +41,7 @@ class ArticleAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('POST', '/admin/article/editer/2');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -51,7 +51,7 @@ class ArticleAdminControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('POST', '/admin/article/delete/2');
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
