@@ -28,8 +28,9 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/une-idee-a-nous-paratger-?", name="idea_box")
+     * @param Request $request
+     * @return Response
      */
-
     public function newIdea(Request $request): Response
     {
         $idea = new IdeaBox();

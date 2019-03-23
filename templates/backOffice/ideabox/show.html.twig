@@ -1,0 +1,53 @@
+{% extends 'backOffice/base.html.twig' %}
+{% block title %}Listes des idées {% endblock %}
+{% block body %}
+
+    <h1>
+        Lister des idées
+    </h1>
+
+    <table class="uk-table uk-table-striped">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Idée</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for idea in ideabox %}
+            <tr>
+                <td>{{ idea.name }}</td>
+                <td>{{ idea.telephone }}</td>
+                <td>{{ idea.email }}</td>
+                <td>{{ idea.idea|slice(0, 100) }}</td>
+                <td>
+                    <a class="uk-button uk-button-primary test" id="idea_{{ idea.id }}" href="#modal-sections" uk-toggle>
+                        Voir
+                        <input type="hidden" value="{{ idea.id }}">
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="modal-sections" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h1 class="uk-modal-title", id="name"></h1>
+            </div>
+            <div class="uk-modal-body">
+                <h3 style="display: inline;" id="email">Email</h3>
+                <h3 style="display: inline; padding-left: 1.5rem;" id="telephone">numéro de téléphone</h3>
+                <p id="content">content</p>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

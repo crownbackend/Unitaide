@@ -55,6 +55,7 @@ class Article
     private $updatedAt;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text")
      */
     private $tags;
@@ -69,7 +70,7 @@ class Article
      *   @Assert\Image(
      *     mimeTypes={"image/jpeg", "image/png", "image/gif"},
      *     mimeTypesMessage = "Please upload a valid Image",
-     *     maxSize="8024k"
+     *     maxSize="9024k"
      * )
      * })
      */

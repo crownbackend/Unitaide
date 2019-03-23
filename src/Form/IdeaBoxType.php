@@ -34,7 +34,8 @@ class IdeaBoxType extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Un numéro ou vous joindre ?'
-                ]
+                ],
+                'required' => false
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
