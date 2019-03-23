@@ -16,6 +16,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      * @param ArticleRepository $articleRepository
+     * @param EventRepository $eventRepository
      * @return Response
      */
     public function index(ArticleRepository $articleRepository, EventRepository $eventRepository): Response

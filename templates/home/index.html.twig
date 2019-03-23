@@ -12,7 +12,24 @@
                 </div>
             </div>
         </div>
+            {% for message in app.flashes('mail_send_success') %}
+                <div class="text-center alert alert-success container" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="flash-notice">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% for message in app.flashes('message') %}
+            <div class="text-center alert alert-success container" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
     </div>
+
 
     <aside id="fh5co-hero" class="js-fullheight">
         <div class="flexslider js-fullheight">

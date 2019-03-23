@@ -1,15 +1,17 @@
 <h2>Inscrivez vous à notre newsletter</h2>
 <div class="animate-box">
     <div class="row">
-        {{ form_start(form, {'action': path('newsletter')}) }}
+        {{ form_start(form, {'action': path('newsletter'), 'method': 'POST'}) }}
         <div class="col-md-6">
             <div class="form-group">
                 {{ form_widget(form.name, {'attr': {'style': 'height: 42px;'}}) }}
+                {{ form_errors(form.name, {'attr': {'style': 'height: 42px;'}}) }}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 {{ form_widget(form.email) }}
+                {{ form_errors(form.email) }}
             </div>
         </div>
 
