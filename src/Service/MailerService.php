@@ -10,12 +10,12 @@ class MailerService extends AbstractController
     {
         $message = (new \Swift_Message($subject))
             ->setFrom($from)
-            ->setTo($to)
+            ->setBcc($to)
             ->setBody(
                 $this->renderView(
                 // templates/emails/registration.html.twig
                     'emails/registration.html.twig',
-                    ['name' => $content]
+                    ['content' => $content]
                 ),
                 'text/html'
             )

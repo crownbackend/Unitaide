@@ -7,8 +7,8 @@
     <h1 class="uk-text-center">Bienvenue sur votre espace admin</h1>
     <ul class="uk-subnav" uk-margin>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_category') }}">Ajouter une Categorie</a></li>
-        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}">Ajouter un article</a></li>
-        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}">Ajouter un evenements</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}" data-turbolinks="false">Ajouter un article</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}" data-turbolinks="false">Ajouter un evenements</a></li>
     </ul>
 {% if articles %}
     <h1 class="uk-text-center">Voici la listes des dernier articles publier sur le site </h1>
@@ -34,7 +34,7 @@
                             <div>
                                 <a class="uk-button uk-button-text" href="{{ path('admin_show_article', {'slug': article.slug}) }}">Lire la suite</a>
                             </div>
-                            <a href="{{ path('admin_edit_article', {'id': article.id}) }}" title="Editer l'article" style="padding-left: 100px;">
+                            <a href="{{ path('admin_edit_article', {'id': article.id}) }}" data-turbolinks="false" title="Editer l'article" style="padding-left: 100px;">
                                 <i class="far fa-edit"></i>
                             </a>
                             <a href="{{ path('admin_delete_article', {'id': article.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article">
@@ -71,7 +71,7 @@
                                 <div>
                                     <a class="uk-button uk-button-text" href="{{ path('admin_show_event', {'slug': event.slug}) }}">Lire la suite</a>
                                 </div>
-                                <a href="{{ path('admin_edit_event', {'id': event.id}) }}" title="Editer l'article" style="padding-left: 100px;">
+                                <a href="{{ path('admin_edit_event', {'id': event.id}) }}" data-turbolinks="false" title="Editer l'article" style="padding-left: 100px;">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 <a href="{{ path('admin_delete_event', {'id': event.id}) }}" onclick="return confirm('Are you sure?')" title="Supprimer l'article">
