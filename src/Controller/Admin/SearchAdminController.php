@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Repository\ArticleRepository;
 use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,9 +20,9 @@ class SearchAdminController extends AbstractController
      */
     public function searchArticle(Request $request, ArticleRepository $articleRepository): Response
     {
-        $article = $request->get('search-article');
+        $search = $request->get('search-article');
 
-        $result = $articleRepository->findBySearch($article);
+        $result = $articleRepository->findBySearch($search);
 
         return $this->render('backOffice/search/article.html.twig', [
             'articles' => $result
@@ -42,5 +43,29 @@ class SearchAdminController extends AbstractController
         return $this->render('backOffice/search/event.html.twig', [
             'events' => $result
         ]);
+    }
+
+    /**
+     * @Route("/admin/search-ajax-result", name="search_ajax")
+     * @param Request $request
+     * @param ArticleRepository $articleRepository
+     * @return JsonResponse
+     */
+    public function searchAjax(Request $request, ArticleRepository $articleRepository): JsonResponse
+    {
+        $search = $request->get('search');
+
+        $result = $articleRepository->findBySearchAjax($search);
+
+        return new JsonResponse($result);
+    }
+
+    /**
+     * @Route("/admin/ajax-search")
+     * @return Response
+     */
+    public function articleSearchTest(): Response
+    {
+        return $this->render('test/article.html.twig');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
@@ -70,6 +71,18 @@ class ArticleRepository extends ServiceEntityRepository
             ->setParameter('name', "%$search%")
             ->getQuery()
             ->getResult()
+        ;
+        return $query;
+    }
+
+    public function findBySearchAjax($search)
+    {
+        $query = $this->createQueryBuilder('a')
+            ->where('a.title LIKE :name')
+            ->orWhere('a.description LIKE :name')
+            ->setParameter('name', "%$search%")
+            ->getQuery()
+            ->getArrayResult()
         ;
         return $query;
     }

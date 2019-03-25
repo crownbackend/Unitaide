@@ -6,6 +6,7 @@ var Turbolinks = require("turbolinks");
 Turbolinks.start();
 
 $(document).ready(function () {
+    // idea-box
     $('.test').on('click', function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -26,7 +27,31 @@ $(document).ready(function () {
                 console.log(data);
             }
         });
-    })
+    });
+
+    // search
+    $('#search-ajax').keyup(function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        let res = $(this).val();
+        $.ajax({
+            method: 'GET',
+            url: '/admin/search-ajax-result',
+            data: {search: res},
+            dataType: 'json',
+            success: function (data) {
+                for(var i = 0; i < data.length; i++) {
+                    var article       = data[i];
+                    var title         = article.title;
+                    var description   = article.description;
+                    $('.result').html('<h3>'+title+'</h3> <p>'+description+'</p>');
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    });
 });
 
 
