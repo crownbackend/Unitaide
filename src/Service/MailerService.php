@@ -35,4 +35,21 @@ class MailerService extends AbstractController
         ;
         $mailer->send($message);
     }
+
+    public function confirmNewsletter(\Swift_Mailer $mailer, $to, $from, $subject, $name)
+    {
+        $message = (new \Swift_Message($subject))
+            ->setFrom($from)
+            ->setTo($to)
+            ->setBody(
+                $this->renderView(
+                    'emails/confirmation.html.twig',
+                    [
+                        'name' => $name
+                    ]
+                ),
+                'text/html'
+            );
+        $mailer->send($message);
+    }
 }

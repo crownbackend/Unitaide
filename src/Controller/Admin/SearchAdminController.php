@@ -44,28 +44,4 @@ class SearchAdminController extends AbstractController
             'events' => $result
         ]);
     }
-
-    /**
-     * @Route("/admin/search-ajax-result", name="search_ajax")
-     * @param Request $request
-     * @param ArticleRepository $articleRepository
-     * @return JsonResponse
-     */
-    public function searchAjax(Request $request, ArticleRepository $articleRepository): JsonResponse
-    {
-        $search = $request->get('search');
-
-        $result = $articleRepository->findBySearchAjax($search);
-
-        return new JsonResponse($result);
-    }
-
-    /**
-     * @Route("/admin/ajax-search")
-     * @return Response
-     */
-    public function articleSearchTest(): Response
-    {
-        return $this->render('test/article.html.twig');
-    }
 }
