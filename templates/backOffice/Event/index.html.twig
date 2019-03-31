@@ -31,6 +31,7 @@
 
                         <div class="uk-card-body">
                             <h3 class="uk-card-title">{{ event.title|slice(0, 22) }}...</h3>
+                            <p class="uk-article-meta">Publier le {{ event.createdAt|date('d/m/Y à i:s') }}.</p>
                             <p>{{ event.seoDescription|slice(0, 70) }}...</p>
                             <div class="uk-grid-small uk-child-width-auto" uk-grid>
                                 <div>
