@@ -2,9 +2,9 @@
 {% block title %}Evenements{% endblock %}
 {% block body %}
 
-    <h1 class="uk-text-center">Listes des derniers évenements pubilier</h1>
+    <h1 class="uk-text-center">Liste des derniers évènements publiés</h1>
     <ul class="uk-subnav" uk-margin>
-        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}" data-turbolinks="false">Ajouter un évenement</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}" data-turbolinks="false">Ajouter un évènement</a></li>
         <li>
             <div class="uk-margin">
                 <form class="uk-search uk-search-default" method="GET" action="{{ path('admin_search_event') }}">
@@ -31,7 +31,7 @@
 
                         <div class="uk-card-body">
                             <h3 class="uk-card-title">{{ event.title|slice(0, 22) }}...</h3>
-                            <p class="uk-article-meta">Publier le {{ event.createdAt|date('d/m/Y à i:s') }}.</p>
+                            <p class="uk-article-meta">Publies le {{ event.createdAt|date('d/m/Y à H:i') }}.</p>
                             <p>{{ event.seoDescription|slice(0, 70) }}...</p>
                             <div class="uk-grid-small uk-child-width-auto" uk-grid>
                                 <div>

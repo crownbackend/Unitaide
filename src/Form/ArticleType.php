@@ -27,7 +27,7 @@ class ArticleType extends AbstractType
             ->add('seoDescription', TextType::class, [
                 'attr' => [
                     'class' => 'uk-input',
-                    'placeholder' => 'Une description qui ne dépasse pas les 154 caractère, elle sera utilise pour tous ce qui est référencement'
+                    'placeholder' => 'Une description qui ne dépasse pas les 154 caractères, elle sera utilisé pour tout ce qui est référencement'
                 ]
             ])
             ->add('description', TextareaType::class,[
@@ -44,7 +44,7 @@ class ArticleType extends AbstractType
             ->add('tags', TextType::class, [
                 'attr' => [
                     'class' => 'uk-input',
-                    'placeholder' => 'Séparer chaque mot par une virgule : paris, bruxelle, rome'
+                    'placeholder' => 'Séparez chaque mot par une virgule : paris, bruxelle, rome'
                 ]
             ])
             ->add('imageFileMiniature', FileType::class, [

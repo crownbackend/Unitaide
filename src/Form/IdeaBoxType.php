@@ -33,14 +33,14 @@ class IdeaBoxType extends AbstractType
             ->add('telephone', NumberType::class, [
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Un numéro ou vous joindre ?'
+                    'placeholder' => 'Un numéro où vous joindre ?'
                 ],
                 'required' => false
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Un email ou vous joindre ?'
+                    'placeholder' => 'Un email où vous joindre ?'
                 ]
             ])
         ;

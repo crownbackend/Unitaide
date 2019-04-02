@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <h1 class="uk-text-center">Listes des derniers articles pubilier</h1>
+    <h1 class="uk-text-center">Liste des derniers articles publiés</h1>
     <ul class="uk-subnav" uk-margin>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}" data-turbolinks="false">Ajouter un article</a></li>
         <li>
@@ -33,7 +33,7 @@
 
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">{{ article.title|slice(0, 22) }}...</h3>
-                        <p class="uk-article-meta">Publier le {{ article.createdAt|date('d/m/Y à i:s') }}.</p>
+                        <p class="uk-article-meta">Publié le {{ article.createdAt|date('d/m/Y à H:i') }}.</p>
                         <p>{{ article.seoDescription|slice(0, 70) }}...</p>
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>

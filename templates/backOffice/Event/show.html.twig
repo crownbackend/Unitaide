@@ -21,14 +21,19 @@
             </a>
         </p>
 
-
-        <p>{{ event.description|raw }}</p>
+        {{ event.description|raw }}
 
         <div class="uk-grid-small uk-child-width-auto" uk-grid>
             <div>Tags:
                 {% for tag in event.tags|split(',') %}
                     <span class="uk-label uk-label-success">{{ tag }}</span>
                 {% endfor %}
+            </div>
+        </div>
+
+        <div class="uk-grid-small uk-child-width-auto" uk-grid>
+            <div>Date de l'énvenement:
+                <h3>{{ event.endEvent|date('d/m/Y à H:i') }}</h3>
             </div>
         </div>
 

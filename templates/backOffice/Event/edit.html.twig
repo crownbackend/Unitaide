@@ -5,7 +5,7 @@
     {{ form_start(form) }}
     <fieldset class="uk-fieldset">
 
-        <legend class="uk-legend">Modifier un evenement</legend>
+        <legend class="uk-legend">Modifier un évènement</legend>
         <div class="uk-margin">
             {{ form_label(form.title, 'Titre') }}
             {{ form_widget(form.title) }}
@@ -29,7 +29,7 @@
         </div>
 
         <div class="uk-margin">
-            {{ form_label(form.imageFile, 'Ajouter une miniature pour l\'enevenement') }}
+            {{ form_label(form.imageFile, 'Ajouter une miniature pour l\'évènement') }}
             {{ form_widget(form.imageFile) }}
             {{ form_errors(form.imageFile) }}
         </div>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="uk-margin">
-            {{ form_label(form.endEvent, 'Date de l\'evenement') }}
+            {{ form_label(form.endEvent, 'Date de l\'évènement') }}
             {{ form_widget(form.endEvent) }}
             {{ form_errors(form.endEvent) }}
         </div>
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <button type="submit" class="uk-button uk-button-primary">Ajouter</button>
+        <button type="submit" class="uk-button uk-button-primary">Modifier</button>
     </fieldset>
     {{ form_end(form) }}
 

@@ -4,14 +4,14 @@
 
 {% block body %}
 
-    <h1 class="uk-text-center">Bienvenue sur votre espace admin</h1>
+    <h1 class="uk-text-center">Bienvenue sur votre espace d'administration</h1>
     <ul class="uk-subnav" uk-margin>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_category') }}">Ajouter une Categorie</a></li>
         <li><a class="uk-button uk-button-default" href="{{ path('admin_new_article') }}" data-turbolinks="false">Ajouter un article</a></li>
-        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}" data-turbolinks="false">Ajouter un evenements</a></li>
+        <li><a class="uk-button uk-button-default" href="{{ path('admin_new_event') }}" data-turbolinks="false">Ajouter un évenement</a></li>
     </ul>
 {% if articles %}
-    <h1 class="uk-text-center">Voici la listes des dernier articles publier sur le site </h1>
+    <h1 class="uk-text-center">Voici la liste des derniers articles publiés</h1>
 {% else %}
     <h1 class="uk-text-center">Aucun article n'est disponible pour le moment</h1>
 {% endif %}
@@ -29,6 +29,7 @@
                     {% set tags = article.tags|split(',')  %}
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">{{ article.title|slice(0, 22) }}...</h3>
+                        <p class="uk-article-meta">Publié le {{ article.createdAt|date('d/m/Y à H:i') }}.</p>
                         <p>{{ article.seoDescription|slice(0, 70) }}...</p>
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>
@@ -49,9 +50,9 @@
         </div>
     {% endfor %}
 {% if events %}
-    <h1 class="uk-text-center">Listes des derniers Evenement pubilier sur le site</h1>
+    <h1 class="uk-text-center">Liste des derniers évènements publiés</h1>
 {% else %}
-    <h1 class="uk-text-center">Aucun évenement n'est disponible pour le moment</h1>
+    <h1 class="uk-text-center">Aucun évènements n'est disponible pour le moment</h1>
 {% endif %}
     {% for row in events|batch(3) %}
         <div class="uk-child-width-1-3@m" uk-grid>
@@ -66,6 +67,7 @@
                         {% set tags = event.tags|split(',')  %}
                         <div class="uk-card-body">
                             <h3 class="uk-card-title">{{ event.title|slice(0, 22) }}...</h3>
+                            <p class="uk-article-meta">Publié le {{ event.createdAt|date('d/m/Y à H:i') }}.</p>
                             <p>{{ event.seoDescription|slice(0, 70) }}...</p>
                             <div class="uk-grid-small uk-child-width-auto" uk-grid>
                                 <div>
