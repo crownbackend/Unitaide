@@ -5,8 +5,13 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Bienvenue sur Unitaide.org" />
         <meta name="robots" content="index, follow">
+        <meta name="copyright" content="unitaide.org all rights reserved ©" />
+        <meta name="author" content="Bouchoucha Belhassen" />
+        <meta name="Generator" content="Symfony, (https://symfony.com/)" />
+        {% block seo %}<meta name="description" content="Bienvenue sur Unitaide.org" />
+        {% endblock %}
+        {% block reseaux %}{% endblock %}
         <!-- favicon.ico and apple-touch-icon.png -->
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('images/favicon-96x96.png') }}">

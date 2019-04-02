@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title %} {{ article.title }} {% endblock %}
+{% block seo %}
+    <meta name="description" content="{{ article.seoDescription }}" />
+{% endblock %}
+{% block reseaux %}
+    <meta property="og:url"           content="{{ app.request.uri }}" />
+    <meta property="og:type"          content="unitaide.org" />
+    <meta property="og:title"         content="{{ article.title }}" />
+    <meta property="og:description"   content="{{ article.seoDescription }}" />
+    <meta property="og:image"         content="{{ url('home') }}{{ vich_uploader_asset(article, 'imageFileMiniature') }});" />
+{% endblock %}
 {% block body %}
 
     <div id="fh5co-intro-section">

@@ -1,12 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block title %} {{ event.title }} {% endblock %}
+{% block seo %}
+    <meta name="description" content="{{ event.seoDescription }}" />
+{% endblock %}
+{% block reseaux %}
+    <meta property="og:url"           content="{{ app.request.uri }}" />
+    <meta property="og:type"          content="unitaide.org" />
+    <meta property="og:title"         content="{{ event.title }}" />
+    <meta property="og:description"   content="{{ event.seoDescription }}" />
+    <meta property="og:image"         content="{{ url('home') }}{{ vich_uploader_asset(event, 'imageFile') }});" />
+{% endblock %}
 {% block body %}
 
     <div id="fh5co-intro-section">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 animate-box text-center">
                 <h1 class="intro-heading">{{ event.title }}</h1>
-                <p><span>Evenement publier le :  {{ event.createdAt|date('d/m/Y') }}</span></p>
+                <p><span>Évènement publier le :  {{ event.createdAt|date('d/m/Y') }}</span></p>
             </div>
         </div>
     </div>
