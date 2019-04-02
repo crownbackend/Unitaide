@@ -63,7 +63,7 @@
                 <div class="row">
                     {% for image in event.images %}
                         <div class="col-md-6 text-center animate-box">
-                            <div class="work" style="background-image: url({{ vich_uploader_asset(image, 'imageFile') }});">
+                            <div class="work img-fluid" style="background-image: url({{ vich_uploader_asset(image, 'imageFile') }});">
                             </div>
                         </div>
                     {% endfor %}
