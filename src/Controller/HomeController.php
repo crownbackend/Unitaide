@@ -52,4 +52,13 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/faite-un-don", name="don")
+     * @return Response
+     */
+    public function don(): Response
+    {
+        return $this->render('inc/don.html.twig');
+    }
+
 }
