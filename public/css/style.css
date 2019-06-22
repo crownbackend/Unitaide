@@ -1041,3 +1041,18 @@ input[type="text"] {
 .pagination > li > a:hover {
   color: #7cb342;
 }
+
+.btn-test {
+  background-image: linear-gradient(to right, #2b88ff, #7cb342);
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 1350px) {
+  #nav-edit {
+    display: none;
+  }
+  #reseau {
+    display: block;
+  }
+}
+
