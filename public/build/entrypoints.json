@@ -1,0 +1,28 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.6cf710cd.js",
+        "/build/app.bd7fabeb.js"
+      ],
+      "css": [
+        "/build/app.583c1d5e.css"
+      ]
+    },
+    "uikit": {
+      "js": [
+        "/build/runtime.6cf710cd.js",
+        "/build/uikit.5f2401d7.js"
+      ],
+      "css": [
+        "/build/uikit.a5f9cf63.css"
+      ]
+    },
+    "uikit-icon": {
+      "js": [
+        "/build/runtime.6cf710cd.js",
+        "/build/uikit-icon.7f902a1f.js"
+      ]
+    }
+  }
+}
