@@ -23,7 +23,7 @@
     <header >
         <nav class="navbar navbar-default" style="background-color: #FFFFFF;margin-bottom: 0px;">
                 <div class="navbar-header">
-                        <h1 class="text-center"><a class="fh5co-logo" href="{{ url('home') }}"><img src="{{ asset('images/logo.png') }}" width="150" height="150" alt="logo"></a></h1>
+                    <h1 class="text-center"><a class="fh5co-logo" href="{{ url('home') }}"><img src="{{ asset('images/logo.png') }}" width="150" height="150" alt="logo"></a></h1>
                 </div>
                 <div class="container" id="nav-edit">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top: 10px;">
@@ -34,7 +34,7 @@
                             <li><a href="{{ path('event') }}"><strong>EVENEMENTS</strong></a></li>
                             <li><a href="{{ path('contact') }}"><strong>CONTACT</strong></a></li>
                             <li>
-                                <figure class="text-center" id="reseau">
+                                <figure class="text-center" id="reseau"style="margin-left: 30px;">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <a href="https://www.instagram.com/unitaide.asso/" target="_blank">
@@ -51,12 +51,12 @@
                                 </figure>
                             </li>
                         </ul>
-                        <figure class="text-right">
-                        <a href="{{ path('don') }}" class="btn btn-test" style="margin-bottom: 0px;border-bottom-width: 0px;margin-right: 0px;padding-bottom: 10px;padding-top: 10px;margin-top: 5px;">Faire un don</a>
+                        <figure class="js-fh5co-nav-toggle fh5co-nav-toggle">
+                            <a href="{{ path('don') }}" class="btn btn-test" style="margin-bottom: 0px;border-bottom-width: 0px;margin-right: 0px;padding-bottom: 10px;padding-top: 10px;margin-top: 5px;">Faire un don</a>
                         </figure>
                     </div>
                 </div>
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+                <a href="#" id="toogle" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
         </nav>
     </header>
 

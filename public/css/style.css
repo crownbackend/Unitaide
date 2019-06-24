@@ -1056,3 +1056,9 @@ input[type="text"] {
   }
 }
 
+@media screen and (min-width: 1350px) {
+  #toogle {
+    display: none;
+  }
+}
+
